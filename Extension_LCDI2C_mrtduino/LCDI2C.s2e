@@ -1,0 +1,103 @@
+{	"extensionName": "LCD con I2C",
+	"description": "Extensión para usar el LCD en el software MRTduino. Previamente debe instalarse la librería LiquidCrystal_I2C
+	creada por Marcos Schwartz del repositorio de Arduino,  https://github.com/marcoschwartz/LiquidCrystal_I2C
+	aunque igual se añade en la carpeta src de los ficheros de la extesión. Esto tenemos que verlo",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":3,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización LCD en %d.lcdaddr con %d.lines líneas y %d.cols carcateres por línea",
+			"LCDI2Cbegin",
+			"0x3F",
+			2,
+			16,
+			{
+				"setup":"lcd_I2C.init();\n",
+				"inc":"#include <LiquidCrystal_I2C.h>\n",
+				"def":"LiquidCrystal_I2C lcd_I2C({0},{2},{1});\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Esribe en la línea %d.line y columna Col %d.col el texto %s ",
+			"LCDI2CPrint",
+			1,
+			1,
+			"soy un robot",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd_I2C.setCursor( ({1}) - 1, ({0}) - 1 );\nlcd_I2C.print( {2} );\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Poner el backlight del LCD %d.switch ",
+			"LCDI2CBacklight",
+			"ON",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd_I2C.setBacklight( {0} );\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Limpiar el LCD",
+			"LCDI2CClear",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd_I2C.clear();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Cursor LCD %d.indicator",
+			"LCDI2CIndicator",
+			"mostrar cursor",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"void setLCDindicator(LiquidCrystal_I2C *pLCD, int indstate){\nif (indstate==1) pLCD->cursor_on();\nelse if (indstate==2) pLCD->cursor_off();\nelse if (indstate==3) pLCD->blink_on();\nelse if (indstate==4) pLCD->blink_off();\n}\n",
+				"work":"setLCDindicator(&lcd_I2C, {0} );\n",
+				"loop":""
+			}
+		]
+	],
+	"menus": {
+		"switch":["ON","OFF"],
+		"indicator":["mostrar cursor","esconder cursor","cursor parpadea","cursor no parpadea"],
+		"lines":[2,4],
+		"cols":[16,20],
+		"line":[1,2,3,4],
+		"col":[1,2,4,8,12,16,20],
+		"lcdaddr":["0x27","0x30","0x38","0x3F"]
+	},
+	"values":{
+		"ON":1,
+		"OFF":0,
+		"mostrar cursor":1,
+		"esconder cursor":2,
+		"cursor parpadea":3,
+		"cursor no parpadea":4
+	},
+	"translators":{
+		
+	}
+}
