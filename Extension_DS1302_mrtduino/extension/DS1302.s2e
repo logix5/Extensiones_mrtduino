@@ -1,0 +1,107 @@
+{	"extensionName": "DS1302 RTC",
+	"description": "Extensión DS1302.Reloj de Tiempo real usando pines comunes de la placa. Previamente debe instalarse la librería DS1302
+	esta http://www.rinkydinkelectronics.com/library.php?id=5. Hemos prefiro esta
+	por la facilidad de rellenar los bloques para el modo Arduino en la aplicación
+	Igual se añade en la carpeta src de los ficheros de la extesión. Esto tenemos que verlo",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":4,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+    "blockSpecs": [
+        
+		[
+			"w",
+			"Inicialización RTC DS3102 CePin %d.puertosDS1302 IoPin %d.puertosDS1302 y SclkPin %d.puertosDS1302",
+			"DS1302begin",
+			"Port9",
+			"Port10",
+			"Port11",
+			{
+				"setup":"rtc.halt(false);\nrtc.writeProtect(false);\n",
+				"inc":"#include <DS1302.h>\n",
+				"def":"DS1302 rtc({0},{1},{2});\nTime t;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Configurar día de la semana a %d.dow",
+			"DS1302setday",
+			"Lunes",
+			{
+			    "encode": "{d0}",
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"rtc.setDOW({0});\n",
+				"loop":""
+			}
+		],
+        [
+			"w",
+			"Configurar hora: Hora %d.hour Minutos %d.min y Segundos %d.seg",
+			"DS1302settime",
+			"00",
+			"00",
+			"00",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"rtc.setTime({0}, {1}, {2});\n",
+				"loop":""
+			}
+		],
+       [
+			"w",
+			"Configurar fecha: Día %d.day Mes %d.month y Año %d.year",
+			"DS1302setdate",
+			"1",
+			"Enero",
+			"2010",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"rtc.setDate({0}, {1}, {2});\n",
+				"loop":""
+			}
+		],
+        
+        
+        ///touch sensor
+        ["R", "Touch sensor %d.InputPorts", "getTouch", "Port1", {"encode": "{d0}", "setup": "", "inc": "", "def": "MrtButton button{0}({0});\n", "work": "button{0}.btnRead()", "loop": ""}],
+        ["B", "Touch sensor %d.InputPorts %d.touchValues", "runTouch", "Port1", "pressed", {"encode": "{d0},{d1}", "setup": "", "inc": "", "def": "MrtButton button{0}({0});\n", "work": "button{0}.isPressed({1})", "loop": ""}],
+        ["B", "Touch sensor %d.InputPorts %d.touchValues COUNT %n TIME %n sec", "runTouchCount", "Port1", "pressed", 5, 1, {"encode": "{d0}{d1}{d2}{d3}", "setup": "", "inc": "", "def": "MrtButton button{0}({0});\n", "work": "button{0}.isPressed({1},{2},{3})", "loop": ""}],
+        ["-"],
+        
+       
+       
+       
+        /// start button
+        //["h", "when Start button %d.buttonStates", "runButton", "pressed", {"encode": "{d0}", "setup": "", "inc": "", "def": "", "work": "", "loop": ""}]
+        
+        
+   ],
+    "menus": {
+		"puertosDS1302": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"],
+         "dow": ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"],
+        "month": ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+    },
+    "values": {
+        "Port1": 1, "Port2": 2, "Port3": 3, "Port4": 4, "Port5": 5, "Port6": 6, "Port7": 7, "Port8": 8, "Port9": 9, "Port10": 10, "Port11": 11, "Port12": 12, "Port13": 13, "Port14": 14, "Port15": 15, "Port16": 16, 
+        "Lunes":1,"Martes":2,"Miércoles":3,"Jueves":4,"Viernes":5,"Sábado":6,"Domingo":7,
+	   "Enero": 1,"Febrero": 2,"Marzo": 3,"Abril": 4,"Mayo": 5,"Junio": 6,"Julio": 7,"Agosto": 8,"Septiembre": 9,"Octubre": 10,"Noviembre": 11,"Diciembre": 12,
+	   
+        ">=": 1, ">": 2, "=": 3, "<": 4, "<=": 5,
+        "On": 1, "Off": 0
+       
+    },
+    "translators": {
+        
+    }
+}
