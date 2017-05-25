@@ -24,7 +24,7 @@
 				"inc":"#include <DS1302.h>\n",
 				"def":"DS1302 rtc({0},{1},{2});\nTime t;\n",
 				"work":"",
-				"loop":""
+				"loop":"t = rtc.getTime();\n"
 			}
 		],
 		[
@@ -71,21 +71,129 @@
 				"loop":""
 			}
 		],
-        
-        
-        ///touch sensor
-        ["R", "Touch sensor %d.InputPorts", "getTouch", "Port1", {"encode": "{d0}", "setup": "", "inc": "", "def": "MrtButton button{0}({0});\n", "work": "button{0}.btnRead()", "loop": ""}],
-        ["B", "Touch sensor %d.InputPorts %d.touchValues", "runTouch", "Port1", "pressed", {"encode": "{d0},{d1}", "setup": "", "inc": "", "def": "MrtButton button{0}({0});\n", "work": "button{0}.isPressed({1})", "loop": ""}],
-        ["B", "Touch sensor %d.InputPorts %d.touchValues COUNT %n TIME %n sec", "runTouchCount", "Port1", "pressed", 5, 1, {"encode": "{d0}{d1}{d2}{d3}", "setup": "", "inc": "", "def": "MrtButton button{0}({0});\n", "work": "button{0}.isPressed({1},{2},{3})", "loop": ""}],
-        ["-"],
-        
+		[
+			"w",
+			"Enviar la puerto serie la hora",
+			"DS1302sendtime",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial.println(rtc.getTimeStr());\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Enviar la puerto serie la fecha",
+			"DS1302senddate",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial.println(rtc.getDateStr());\n",
+				"loop":""
+			}
+		],	
+		[
+			"R",
+			"Día",
+			"DS1302day",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"t.date",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Día de la semana",
+			"DS1302dayofweek",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"rtc.getDOWStr()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Mes en texto",
+			"DS1302monthtext",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"rtc.getMonthStr()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Mes en número",
+			"DS1302month",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"t.mon",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Año",
+			"DS1302year",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"t.year",
+				"loop":""
+			}
+		],
+				
+		[
+			"R",
+			"Hora",
+			"DS1302hour",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"t.hour",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Minutos",
+			"DS1302minutes",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"t.min",
+				"loop":""
+			}
+		],
+        [
+			"R",
+			"Segundos",
+			"DS1302sec",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"t.sec",
+				"loop":""
+			}
+		]
        
-       
-       
-        /// start button
-        //["h", "when Start button %d.buttonStates", "runButton", "pressed", {"encode": "{d0}", "setup": "", "inc": "", "def": "", "work": "", "loop": ""}]
-        
-        
    ],
     "menus": {
 		"puertosDS1302": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"],
@@ -95,11 +203,7 @@
     "values": {
         "Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1, 
         "Lunes":1,"Martes":2,"Miércoles":3,"Jueves":4,"Viernes":5,"Sábado":6,"Domingo":7,
-	   "Enero": 1,"Febrero": 2,"Marzo": 3,"Abril": 4,"Mayo": 5,"Junio": 6,"Julio": 7,"Agosto": 8,"Septiembre": 9,"Octubre": 10,"Noviembre": 11,"Diciembre": 12,
-	   
-        ">=": 1, ">": 2, "=": 3, "<": 4, "<=": 5,
-        "On": 1, "Off": 0
-       
+	    "Enero": 1,"Febrero": 2,"Marzo": 3,"Abril": 4,"Mayo": 5,"Junio": 6,"Julio": 7,"Agosto": 8,"Septiembre": 9,"Octubre": 10,"Noviembre": 11,"Diciembre": 12      
     },
     "translators": {
         
