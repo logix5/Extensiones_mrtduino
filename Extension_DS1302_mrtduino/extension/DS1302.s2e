@@ -93,7 +93,7 @@
         "month": ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
     },
     "values": {
-        "Port1": 1, "Port2": 2, "Port3": 3, "Port4": 4, "Port5": 5, "Port6": 6, "Port7": 7, "Port8": 8, "Port9": 9, "Port10": 10, "Port11": 11, "Port12": 12, "Port13": 13, "Port14": 14, "Port15": 15, "Port16": 16, 
+        "Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1, 
         "Lunes":1,"Martes":2,"Miércoles":3,"Jueves":4,"Viernes":5,"Sábado":6,"Domingo":7,
 	   "Enero": 1,"Febrero": 2,"Marzo": 3,"Abril": 4,"Mayo": 5,"Junio": 6,"Julio": 7,"Agosto": 8,"Septiembre": 9,"Octubre": 10,"Noviembre": 11,"Diciembre": 12,
 	   
