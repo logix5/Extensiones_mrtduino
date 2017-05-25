@@ -255,25 +255,25 @@ char *DS1302::getDOWStr(uint8_t format)
 	switch (t.dow)
 	{
 		case MONDAY:
-			output="Monday";
+			output="Lunes";
 			break;
 		case TUESDAY:
-			output="Tuesday";
+			output="Martes";
 			break;
 		case WEDNESDAY:
-			output="Wednesday";
+			output="Miércoles";
 			break;
 		case THURSDAY:
-			output="Thursday";
+			output="Jueves";
 			break;
 		case FRIDAY:
-			output="Friday";
+			output="Viernes";
 			break;
 		case SATURDAY:
-			output="Saturday";
+			output="Sábado";
 			break;
 		case SUNDAY:
-			output="Sunday";
+			output="Domingo";
 			break;
 	}     
 	if (format==FORMAT_SHORT)
@@ -289,40 +289,40 @@ char *DS1302::getMonthStr(uint8_t format)
 	switch (t.mon)
 	{
 		case 1:
-			output="January";
+			output="Enero";
 			break;
 		case 2:
-			output="February";
+			output="Febrero";
 			break;
 		case 3:
-			output="March";
+			output="Marzo";
 			break;
 		case 4:
-			output="April";
+			output="Abril";
 			break;
 		case 5:
-			output="May";
+			output="Mayo";
 			break;
 		case 6:
-			output="June";
+			output="Junio";
 			break;
 		case 7:
-			output="July";
+			output="Julio";
 			break;
 		case 8:
-			output="August";
+			output="Agosto";
 			break;
 		case 9:
-			output="September";
+			output="Septiembre";
 			break;
 		case 10:
-			output="October";
+			output="Octubre";
 			break;
 		case 11:
-			output="November";
+			output="Noviembre";
 			break;
 		case 12:
-			output="December";
+			output="Diciembre";
 			break;
 	}     
 	if (format==FORMAT_SHORT)
