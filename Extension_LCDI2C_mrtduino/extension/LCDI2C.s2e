@@ -68,6 +68,30 @@
 		],
 		[
 			"w",
+			"Desplazar texto LCD hacia la derecha",
+			"LCDI2C",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd.scrollDisplayRight();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Desplazar texto LCD hacia la izquierda",
+			"LCDI2C",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd.scrollDisplayLeft();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
 			"Cursor LCD %d.indicator",
 			"LCDI2CIndicator",
 			"mostrar cursor",
