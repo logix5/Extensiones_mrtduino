@@ -18,7 +18,7 @@
 			{
 				"setup":"SPI.begin();\nmfrc522.PCD_Init();\n ",
 				"inc":"#include <SPI.h>\n#include <MFRC522.h>\n",
-				"def":"byte readUID[4];\nMFRC522 mfrc522({1},{0});\nbool isEqualArray(byte arrayA[],byte arrayB[],int length){\nfor (int index=0; index<length; index++){\n if (arrayA[index]!=arrayB[index])\nreturn false;\n}\nreturn true;}\nvoid printArray(byte *buffer,byte bufferSize){\nfor (byte i=0; i<bufferSize; i++){\nSerial.print(buffer[i]<0x10 ? \" 0\" : \" \");\nSerial.print(buffer[i],HEX);}}\n",
+				"def":"byte readUID[4];\nMFRC522 mfrc522({1},{0});\nbool isEqualArray(byte arrayA[],byte arrayB[],int length){\nfor (int index=0; index<length; index++){\n if (arrayA[index]!=arrayB[index])\nreturn false;\n}\nreturn true;}\nvoid printArray(byte *buffer,byte bufferSize){\nfor (byte i=0; i<bufferSize; i++){\nSerial.print(buffer[i]<0x10 ? \" 0\" : \" \");\nSerial.print(buffer[i],HEX);}\nSerial.println();}\n",
 				"work":"",
 				"loop":""
 			}
