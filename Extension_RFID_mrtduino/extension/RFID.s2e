@@ -1,6 +1,6 @@
 {	"extensionName": "RFID con SPI",
-	"description": "Extensión para leer y validar tarjetas RFID de los kits de Arduino en el software MRTduino. Previamente debe instalarse la librería del repositorio de Arduino,  https://github.com/marcoschwartz/LiquidCrystal_I2C
-	aunque igual se añade en la carpeta src de los ficheros de la extesión. Esto tenemos que verlo",
+	"description": "Extensión para leer y validar tarjetas RFID de los kits de Arduino en el software MRTduino. Previamente debe instalarse las librerías SPI y la de MFRC522 de https://github.com/miguelbalboa/rfid
+	aunque igual se añade en la carpeta src de los ficheros de la extesión. Esto tenemos que verlo. Por el momento copiadas en la carpeta con las fuentes de la librería de MRT",
 	"version": "1.0",
 	"author": "Oscar Ferruz (oferruz@logix5.com)",
 	"homepage": "https://github.com/logix5",
