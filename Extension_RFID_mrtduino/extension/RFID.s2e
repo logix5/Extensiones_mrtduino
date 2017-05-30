@@ -1,0 +1,118 @@
+{	"extensionName": "RFID con SPI",
+	"description": "Extensión para leer y validar tarjetas RFID de los kits de Arduino en el software MRTduino. Previamente debe instalarse la librería del repositorio de Arduino,  https://github.com/marcoschwartz/LiquidCrystal_I2C
+	aunque igual se añade en la carpeta src de los ficheros de la extesión. Esto tenemos que verlo",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":4,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización RFID: pin RST %d.puertosRFID y pin SDA %d.puertosRFID",
+			"RFIDbegin",
+			"Port9",
+			"Port10",
+			{
+				"setup":"SPI.begin();\nmfrc522.PCD_Init();\n ",
+				"inc":"#include <SPI.h>\n#include <MFRC522.h>\n",
+				"def":"byte readUID[4];\nMFRC522 mfrc522({1},{0});\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Introducir Tarjeta de validación %n valores %s %s %s %s",
+			"RFIDcard",
+			1,
+			"0xFF",
+			"0xFF",
+			"0xFF",
+			"0xFF",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"byte validKey_{0}[4]= { {1}, {2}, {3}, {4} };\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Tarjeta RFID detectada",
+			"RDIFdetected",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"mfrc522.PICC_IsNewCardPresent()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Tarjeta RFID leida",
+			"RDIFread",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"mfrc522.PICC_ReadCardSerial()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"La tarjeta leida es igual a la tarjeta %d ",
+			"RDIFvalid",
+			1,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"\nbool isEqualArray(byte arrayA[],byte arrayB[],int length){\nfor (int index=0; index<length; index++){\n if (arrayA[index]!=arrayB[index])\nreturn false;}\nreturn true;}\n",
+				"work":"isEqualArray(mfrc522.uid.uidByte,validKey_{0},4)",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir la tarjeta leida en el puerto serie ",
+			"RFIDprint",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"\nvoid printArray(byte *buffer,byte bufferSize) {\nfor (byte i=0; i<bufferSize; i++){\nSerial.print(buffer[i]<0x10 ? \" 0\" : \" \");\nSerial.print(buffer[i],HEX);}}\n",
+				"work":"Serial.print(\"Tarjeta RFID cuyo UID es:\");\nprintArray(mfrc522.uid.uidByte, mfrc522.uid.size);\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Fin de lectura tarjeta RFID",
+			"RFIDend",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"mfrc522.PICC_HaltA();",
+				"loop":""
+			}
+		]
+		
+		
+		
+		
+	],
+	"menus": {
+		"puertosRFID": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+	},
+	"values":{
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+	},
+	"translators":{
+		
+	}
+}
