@@ -166,13 +166,13 @@
 		 
 		 ["-"],
 		 ["w",
-			"Inicialización Sensor Temperatura y Humedad DHT21 en %d.puertosall ",
+			"Inicialización Sensor Temperatura y Humedad DHT11 en %d.puertosall ",
 			"DHT11int",
 			"Port1",
 			{
 				"setup":"dht.begin();\n",
 				"inc":"#include <DHT.h>\n",
-				"def":"DHT dht({0}, DHT21);\n",
+				"def":"DHT dht({0}, DHT11);\n",
 				"work":"",
 				"loop":""
 			}
