@@ -55,6 +55,32 @@
 		"work":"analogWrite({0},{1});\n",
 		"loop":""}],
 		
+		[	"w",
+			"Escribir sin salto de linea en el puerto serie %s ",
+			"Serialprintsinsalto",
+			"texto",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial.print({0});\n",
+				"loop":""
+			}
+		],
+		
+		[	"w",
+			"Escribir con salto de linea en el puerto serie %s ",
+			"Serialprintconsalto",
+			"texto",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial.println({0});\n",
+				"loop":""
+			}
+		],
+		
 		["-"],
 
         ["w",
@@ -139,6 +165,49 @@
 		 "loop":""}],
 		 
 		 ["-"],
+		 ["w",
+			"Inicialización Sensor Temperatura y Humedad DHT21 en %d.puertosall ",
+			"DHT11int",
+			"Port1",
+			{
+				"setup":"dht.begin();\n",
+				"inc":"#include <DHT.h>\n",
+				"def":"DHT dht({0}, DHT21);\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		 ["R",
+		"Temperatura DHT11 ",
+		"gettempDHT11",
+        {
+		"setup":"",
+		"inc":"",
+		"def":"",
+		"work":"dht.readTemperature()",
+		"loop":""}],
+		 
+		 ["R",
+		"Humedad DHT11 ",
+		"gethumidityDHT11",
+        {
+		"setup":"",
+		"inc":"",
+		"def":"",
+		"work":"dht.readHumidity()",
+		"loop":""}],
+		 
+		 ["R",
+		" Sensación térmica de calor DHT11 ",
+		"getindexheatDHT11",
+        {
+		"setup":"",
+		"inc":"",
+		"def":"",
+		"work":"dht.computeHeatIndex(dht.readTemperature(), dht.readHumidity(), false)",
+		"loop":""}],
+		 
+		 ["-"],
 		 
 		["R",
 		"Joystick X %d.puertosanalog ",
@@ -154,7 +223,7 @@
 		["R",
 		"Joystick Y %d.puertosanalog ",
 		"getjoystickY",
-		"Port5",
+		"Port6",
         {"encode":"{d0}",
 		"setup":"pinMode({0},INPUT);\n",
 		"inc":"",
