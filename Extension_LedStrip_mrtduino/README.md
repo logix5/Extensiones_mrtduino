@@ -1,5 +1,6 @@
 # Extension_LedStrip_mrtduino
 Extensión para usar tiras de leds.Si no hay muchos leds, se puede con la alimentación de la placa directamente. Se necesita instalar previamente la librería de Adafruit NeoPixel https://github.com/adafruit/Adafruit_NeoPixel
+El chipset que controla eso es el WS2812
 
 ![image](https://user-images.githubusercontent.com/28557392/27225564-31b0171c-529b-11e7-907a-3bab5bdd629a.png)
 
