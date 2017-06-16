@@ -1,0 +1,85 @@
+{	"extensionName": "Strip Leds",
+	"description": "Extensión para usar tiras de leds,anillos, etc..  https://github.com/adafruit/Adafruit_NeoPixel
+	aunque igual se añade en la carpeta src de los ficheros de la extesión. Esto tenemos que verlo.",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":9,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización tira %d de leds en %d.puertosall con %d.numleds leds",
+			"Ledsbegin",
+			1,
+			"Port9",
+			12,
+			{
+				"setup":"pixels_{0}.begin();\n",
+				"inc":"#include <Adafruit_NeoPixel.h>\n",
+				"def":"Adafruit_NeoPixel pixels = Adafruit_NeoPixel({2},{1}, NEO_GRB + NEO_KHZ800);\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Poner el led %d de la tira %d con el color R %d G %d y B %d ",
+			"SetLedColor",
+			0,
+			1,
+			255,
+			255,
+			255,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"pixels_{1}.setPixelColor({0}, pixels_{1}.Color({2},{3},{4}));\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Visualizar leds de la tira %d ",
+			"DisplayLeds",
+			"ON",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"pixels_{0}.show();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Apagar todos los Leds de la tira %d",
+			"Ledsclear",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"pixels_{0}.clear();\n",
+				"loop":""
+			}
+		]
+			
+		
+	],
+	"menus": {
+		"numleds": ["6","12","24","32"],
+		"puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+		
+	},
+	"values":{
+		    	"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+		
+	},
+	"translators":{
+		
+	}
+}
