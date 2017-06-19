@@ -9,3 +9,5 @@ El caso del Display usado es el NX3224T024_011R => propiedades https://www.itead
 El programa para realizar interfaces en el Display es: http://nextion.itead.cc/download.html
 
 Los comandos intercambiados son sacados de: https://www.itead.cc/wiki/Nextion_Instruction_Set
+
+![image](https://user-images.githubusercontent.com/28557392/27291466-8da1ec72-5510-11e7-8e46-940b7448e66b.png)
