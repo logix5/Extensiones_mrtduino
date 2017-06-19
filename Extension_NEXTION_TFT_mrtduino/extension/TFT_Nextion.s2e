@@ -28,8 +28,8 @@
 			{
 				"setup":"",
 				"inc":"",
-				"def":"Serial1.available()\n",
-				"work":"",
+				"def":"",
+				"work":"Serial1.available()",
 				"loop":""
 			}
 		],
@@ -41,8 +41,8 @@
 			{
 				"setup":"",
 				"inc":"",
-				"def":"Serial1.read()\n",
-				"work":"",
+				"def":"",
+				"work":"Serial1.read()",
 				"loop":""
 			}
 		],
@@ -252,8 +252,9 @@
 		
 		[
 			"w",
-			"Color para pintar en el TFT %n",
+			"Color para pintar en el TFT %d.color",
 			"ColordrawTFT",
+			"WHITE",
 			{
 				"setup":"",
 				"inc":"",

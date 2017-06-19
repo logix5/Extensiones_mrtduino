@@ -133,9 +133,9 @@ void Display::CambiarPagina(int idpagina)
 void Display::VisualizarImagen(int x, int y, int id_image)
 {
 	Serial1.print("pic ");
-	Serial1.print(x1);
+	Serial1.print(x);
 	Serial1.print(",");
-	Serial1.print(y1);
+	Serial1.print(y);
 	Serial1.print(",");
 	Serial1.print(id_image);
   
