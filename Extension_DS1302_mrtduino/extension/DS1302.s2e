@@ -21,7 +21,7 @@
 			"Port11",
 			{
 				"setup":"rtc.halt(false);\nrtc.writeProtect(false);\n",
-				"inc":"#include <DS1302.h>\n",
+				"inc":"#include \"DS1302.h\"\n",
 				"def":"DS1302 rtc({0},{1},{2});\nTime t;\n",
 				"work":"",
 				"loop":"t = rtc.getTime();\n"

@@ -18,7 +18,7 @@
 			12,
 			{
 				"setup":"pixels_{0}.begin();\n",
-				"inc":"#include <Adafruit_NeoPixel.h>\n",
+				"inc":"#include \"Adafruit_NeoPixel.h\"\n",
 				"def":"Adafruit_NeoPixel pixels = Adafruit_NeoPixel({2},{1}, NEO_GRB + NEO_KHZ800);\n",
 				"work":"",
 				"loop":""
