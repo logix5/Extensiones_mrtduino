@@ -1,0 +1,292 @@
+{	"extensionName": "TFT Nextion",
+	"description": "Extensión para usar TFT Nextion en el software MRTduino. Los comandos sacados de https://www.itead.cc/wiki/Nextion_Instruction_Set#page:_Refresh_page",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":8,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización TFT Nextion",
+			"TFTNextionbegin",
+			{
+				"setup":"Serial1.begin(115200);\n",
+				"inc":"#include \"Display.h\" \n",
+				"def":"Display tft;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"B",
+			"Hay datos enviados desde el TFT ",
+			"senddatafromTFT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"Serial1.available()\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Leer byte desde el TFT ",
+			"readdatafromTFT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"Serial1.read()\n",
+				"work":"",
+				"loop":""
+			}
+		],
+				
+		[
+			"w",
+			"Borra TFT con color de fondo %d.color ",
+			"ClearTFT",
+			"BLACK",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.clear({0});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Ajustar brillo %n ",
+			"BrightnessTFT",
+			1,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.brightness({0});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Cambiar a página %n ",
+			"ChangepageTFT",
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.CambiarPagina({0});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Visualizar imagen %n en x %n e y %n ",
+			"ImagenTFT",
+			0,
+			0,
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.VisualizarImagen({1},{2},{0});\n",
+				"loop":""
+			}
+		],
+			
+		[
+			"w",
+			"Dibujar línea desde x1 %n y1 %n hasta x2 %n e y2 %n con color %d.color ",
+			"lineTFT",
+			0,
+			0,
+			320,
+			240,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.line({0},{1},{2},{3},{4});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Dibujar rectángulo desde x1 %n y1 %n hasta x2 %n e y2 %n con color %d.color ",
+			"rectangleTFT",
+			0,
+			0,
+			320,
+			240,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.rectangle({0},{1},{2},{3},{4});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar rectángulo relleno desde x1 %n y1 %n hasta x2 %n e y2 %n con color %d.color ",
+			"rectanglefillTFT",
+			0,
+			0,
+			320,
+			240,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.fill({0},{1},{2},{3},{4});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar círculo desde x1 %n y1 %n con radio %n y color %d.color ",
+			"circleTFT",
+			0,
+			0,
+			50,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.circle({0},{1},{2},{3});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar círculo relleno desde x1 %n y1 %n con radio %n y color %d.color ",
+			"circleFillTFT",
+			0,
+			0,
+			50,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.circleFilled({0},{1},{2},{3});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir texto o valor %s en x1 %n y1 %n con letra %n y con color %d.color ",
+			"textTFT",
+			"texto",
+			0,
+			0,
+			1,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.text({1},{2},{3},{4},{0});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Enviar comando %s para propiedad de texto con valor %d ",
+			"SendTextTFT",
+			"b0.text",
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.EnviarComandoTexto({0},{1});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Enviar comando %s para propiedad numérica de valor %d ",
+			"SendValueTFT",
+			"j0.val",
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.EnviarComandoValor({0},{1});\n",
+				"loop":""
+			}
+		],
+
+		[
+			"w",
+			"Habilitar pintar en el TFT ",
+			"EnabledrawTFT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.enableDrawing();\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Color para pintar en el TFT %n",
+			"ColordrawTFT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.drawingColor({0});\n",
+				"loop":""
+			}
+		],
+			
+		[
+			"w",
+			"Deshabilitar pintar en el TFT ",
+			"DisbledrawTFT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft.disableDrawing();\n",
+				"loop":""
+			}
+		]		
+		
+	],
+	"menus": {
+		"color":["BLACK","RED","BLUE","GRAY","WHITE","GREEN","BROWN","YELLOW"]
+		
+	},
+	"values":{
+		"RED":63488, "BLUE":31,"BLACK":0,"GRAY":33840, "WHITE":65535,"GREEN":2016,"BROWN":48192,"YELLOW":65504
+	},
+	"translators":{
+		
+	}
+}
+
+
