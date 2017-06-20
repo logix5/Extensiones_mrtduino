@@ -19,7 +19,7 @@
 			{
 				"setup":"pixels_{0}.begin();\n",
 				"inc":"#include \"Adafruit_NeoPixel.h\"\n",
-				"def":"Adafruit_NeoPixel pixels = Adafruit_NeoPixel({2},{1}, NEO_GRB + NEO_KHZ800);\n",
+				"def":"Adafruit_NeoPixel pixels_{0} = Adafruit_NeoPixel({2},{1}, NEO_GRB + NEO_KHZ800);\n",
 				"work":"",
 				"loop":""
 			}
@@ -46,7 +46,7 @@
 			"w",
 			"Visualizar leds de la tira %d ",
 			"DisplayLeds",
-			"ON",
+			1,
 			{
 				"setup":"",
 				"inc":"",
@@ -59,6 +59,7 @@
 			"w",
 			"Apagar todos los Leds de la tira %d",
 			"Ledsclear",
+			1,
 			{
 				"setup":"",
 				"inc":"",
