@@ -1,0 +1,161 @@
+{
+    "extensionName": "Matriz_led_MAX7219",
+	"description": "Extensión para representar en las matrices, los graficos que se deseen a nivel de pixel",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":1,
+	"extensionPort": 0,
+	"firmware":"1.0",
+	"javascriptURL":"",
+	"blockSpecs": [
+
+		 ["w",
+			"Inicialización Matriz de led. DIN %d.puertosall CS %d.puertosall CLK %d.puertosall.Numero de matrices %n",
+			"Matrizinit",
+			"Port9",
+			"Port10",
+			"Port11",
+			4,
+			{
+				"setup":"",
+				"inc":"#include \"LedControl.h\"\n",
+				"def":"LedControl lc=LedControl({0},{1},{2},{3});\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Crea imagen %n con estos valores %s %s %s %s %s %s %s %s", 
+			"MatrizImage",
+			1,
+			"0x3C",
+			"0x42",
+			"0xA5",
+			"0x81",
+			"0xA5",
+			"0x99",
+			"0x42",
+			"0x3C",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"byte imagen_{0}[8]={ {0},{0},{0},{0},{0},{0},{0},{0} };\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Activar Matriz de led número %n",
+			"MatrizShutdown",
+			1,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc.shutdown({0},false);\n",
+				"loop":""
+			}
+		],
+		
+		
+		["w",
+			"Limpiar la Matriz de led número %n ",
+			"MatrizReset",
+			1,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc.clearDisplay({0});\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Nivel de Brillo %d de la Matriz de led número %n",
+			"MatrizBrightness",
+			15,
+			1,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc.setIntensity({1},{0});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Led d.estado de la Matriz de led número %n en la fila %d y la columna %d",
+			"MatrizsetLed",
+			"ON",
+			1,
+			0,
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc.setLed({1}, {2}, {3}, {0});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Pintar fila %d de la Matriz de led número %n con el valor %s",
+			"MatrizsetRow",
+			0,
+			1,
+			"0xFF",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc.setRow({1}, {0}, {2});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Pintar columna %d de la Matriz de led número %n con el valor %s",
+			"MatrizsetColumn",
+			0,
+			1,
+			"0xFF",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc.setColumn({1}, {0}, {2});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Pintar imagen %d en la Matriz de led número %n",
+			"MatrizsetImage",
+			1,
+			1,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"void printByte(byte character [],int matriz) {\n int i = 0;\n for(i=0;i<8;i++){\nlc.setRow(matriz,i,character[i]);}}\n",
+				"work":"printByte(imagen_{0},{1});\n",
+				"loop":""
+			}
+		]
+		
+    ],
+	"menus": {
+		"estado":["ON","OFF"], 
+		"puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+	},
+	"values":{
+	    "ON": 1, "OFF":0,
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+	},
+	"translators":{
+	}
+}
