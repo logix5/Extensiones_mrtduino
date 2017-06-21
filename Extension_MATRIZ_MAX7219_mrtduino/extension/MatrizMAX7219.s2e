@@ -11,7 +11,7 @@
 	"blockSpecs": [
 
 		 ["w",
-			"Inicialización Matriz de led. DIN %d.puertosall CS %d.puertosall CLK %d.puertosall.Numero de matrices %n",
+			"Inicialización Matriz de led. DIN %d.puertosall CLK %d.puertosall CS %d.puertosall .Numero de matrices %n",
 			"Matrizinit",
 			"Port9",
 			"Port10",
@@ -19,7 +19,7 @@
 			4,
 			{
 				"setup":"",
-				"inc":"#include \"LedControl.h\"\n",
+				"inc":"#include \"LedControlMS.h\"\n",
 				"def":"LedControl lc=LedControl({0},{1},{2},{3});\n",
 				"work":"",
 				"loop":""
@@ -41,7 +41,7 @@
 			{
 				"setup":"",
 				"inc":"",
-				"def":"byte imagen_{0}[8]={ {0},{0},{0},{0},{0},{0},{0},{0} };\n",
+				"def":"byte imagen_{0}[8]={ {8},{7},{6},{5},{4},{3},{2},{1} };\n",
 				"work":"",
 				"loop":""
 			}
@@ -50,7 +50,7 @@
 		["w",
 			"Activar Matriz de led número %n",
 			"MatrizShutdown",
-			1,
+			0,
 			{
 				"setup":"",
 				"inc":"",
@@ -64,7 +64,7 @@
 		["w",
 			"Limpiar la Matriz de led número %n ",
 			"MatrizReset",
-			1,
+			0,
 			{
 				"setup":"",
 				"inc":"",
@@ -74,10 +74,10 @@
 			}
 		],
 		["w",
-			"Nivel de Brillo %d de la Matriz de led número %n",
+			"Nivel de Brillo %n de la Matriz de led número %n",
 			"MatrizBrightness",
 			15,
-			1,
+			0,
 			{
 				"setup":"",
 				"inc":"",
@@ -88,10 +88,10 @@
 		],
 		
 		["w",
-			"Led d.estado de la Matriz de led número %n en la fila %d y la columna %d",
+			"Led %d.estado de la Matriz de led número %n en la fila %n y la columna %n",
 			"MatrizsetLed",
 			"ON",
-			1,
+			0,
 			0,
 			0,
 			{
@@ -107,7 +107,7 @@
 			"Pintar fila %d de la Matriz de led número %n con el valor %s",
 			"MatrizsetRow",
 			0,
-			1,
+			0,
 			"0xFF",
 			{
 				"setup":"",
@@ -122,7 +122,7 @@
 			"Pintar columna %d de la Matriz de led número %n con el valor %s",
 			"MatrizsetColumn",
 			0,
-			1,
+			0,
 			"0xFF",
 			{
 				"setup":"",
@@ -134,10 +134,24 @@
 		],
 		
 		["w",
-			"Pintar imagen %d en la Matriz de led número %n",
+			"Pintar Cadena de caracteres %s en la Matriz de led número %n",
+			"MatrizsetString",
+			"Texto",
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc.writeString({1},{0});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Pintar imagen %n en la Matriz de led número %n",
 			"MatrizsetImage",
 			1,
-			1,
+			0,
 			{
 				"setup":"",
 				"inc":"",
