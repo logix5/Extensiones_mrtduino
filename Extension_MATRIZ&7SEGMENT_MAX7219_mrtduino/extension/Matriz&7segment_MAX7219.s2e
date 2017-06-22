@@ -1,6 +1,6 @@
 {
     "extensionName": "Matriz_led_MAX7219",
-	"description": "Extensión para representar en las matrices, los graficos que se deseen a nivel de pixel",
+	"description": "Extensión para representar en las matrices y el display de 7 segementos, los gráficos que se deseen a nivel de pixel",
 	"version": "1.0",
 	"author": "Oscar Ferruz (oferruz@logix5.com)",
 	"homepage": "https://github.com/logix5",
@@ -21,6 +21,21 @@
 				"setup":"",
 				"inc":"#include \"LedControlMS.h\"\n",
 				"def":"LedControl lc=LedControl({0},{1},{2},{3});\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Inicialización dipslay de 7 segmentos(8 dígitos) DIN %d.puertosall CLK %d.puertosall CS %d.puertosall",
+			"Segmentinit",
+			"Port12",
+			"Port13",
+			"Port14",
+			{
+				"setup":"",
+				"inc":"#include \"LedControlMS.h\"\n",
+				"def":"LedControl lc1=LedControl({0},{1},{2},1);\n",
 				"work":"",
 				"loop":""
 			}
@@ -60,6 +75,17 @@
 			}
 		],
 		
+		["w",
+			"Activar Display de 7 segmentos (8 digitos)",
+			"SegmentShutdown",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc1.shutdown(0,false);\n",
+				"loop":""
+			}
+		],
 		
 		["w",
 			"Limpiar la Matriz de led número %n ",
@@ -73,6 +99,21 @@
 				"loop":""
 			}
 		],
+		
+		["w",
+			"Limpiar Dsiplay de 7 segementos (8 dígitos) ",
+			"SegmentReset",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc1.clearDisplay(0);\n",
+				"loop":""
+			}
+		],
+		
+		
+		
 		["w",
 			"Nivel de Brillo %n de la Matriz de led número %n",
 			"MatrizBrightness",
@@ -83,6 +124,50 @@
 				"inc":"",
 				"def":"",
 				"work":"lc.setIntensity({1},{0});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Nivel de Brillo %n del display de 7 segmento(8 dígitos)",
+			"SegmentBrightness",
+			15,
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc1.setIntensity(0,{0});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Pintar el número %d.numero en el dígito %d.digito encendiendo el punto %d.estado",
+			"SegmentDigit",
+			0,
+			0,
+			"OFF",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc1.setDigit(0, {1}, {0}, {2});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Pintar el caracter %m.letra en el dígito %d.digito encendiendo el punto %d.estado",
+			"SegmentChar",
+			"F",
+			0,
+			"OFF",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lc1.setChar(0, {1}, {0}, {2});\n",
 				"loop":""
 			}
 		],
@@ -163,6 +248,9 @@
 		
     ],
 	"menus": {
+		"numero": ["0","1","2","3","4","5","6","7","8","9"],
+		"digito": ["0","1","2","3","4","5","6","7"],
+		"letra" : ["A","b","c","d","E","F","H","L","P","-","_","0"],
 		"estado":["ON","OFF"], 
 		"puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
 	},
