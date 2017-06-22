@@ -6,3 +6,7 @@ es https://github.com/wayoda/LedControl la cual la añadimos en src para que al 
 
 Queda pte añadir otra librería para pintar texto en todas las matrices y mostrarlo haciendo rolling. Es para hacer rolling
 
+![image](https://user-images.githubusercontent.com/28557392/27431910-71da168c-574e-11e7-9f5c-ccca012b9b89.png)
+![image](https://user-images.githubusercontent.com/28557392/27431968-a0d9e516-574e-11e7-95a9-aa06ee13a1a3.png)
+![image](https://user-images.githubusercontent.com/28557392/27432006-c696f17c-574e-11e7-80a6-498efb701a5a.png)
+
