@@ -16,7 +16,7 @@
 			{
 				"setup":"SD.begin({0});\n",
 				"inc":"#include \"SPI.h\"\n#include <SD.h>\n",
-				"def":"File dataFile;",
+				"def":"File dataFile;\n",
 				"work":"",
 				"loop":""
 			}
@@ -30,7 +30,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"SD.mkdir(\"{0}\");",
+				"work":"SD.mkdir({0});\n",
 				"loop":""
 			}
 		],
@@ -43,24 +43,11 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"SD.rmdir(\"{0}\");",
+				"work":"SD.rmdir({0});\n",
 				"loop":""
 			}
 		],
-		[
-			"w",
-			"Abrir fichero %s en modo %m.mode",
-			"SDFileopen",
-			"nombre_fichero",
-			"ESCRITURA",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"dataFile=SD.open(\"{0}\",{1});",
-				"loop":""
-			}
-		],
+		
 		[
 			"w",
 			"Borrar fichero %s",
@@ -70,7 +57,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"SD.remove(\"{0}\");",
+				"work":"SD.remove({0});\n",
 				"loop":""
 			}
 		],
@@ -83,12 +70,38 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"SD.exists(\"{0}\")",
+				"work":"SD.exists({0})",
 				"loop":""
 			}
 		],
 		["-"],
 		["-"],
+		[
+			"w",
+			"Abrir fichero %s en modo escritura",
+			"SDFileopenwrite",
+			"nombre_fichero",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile=SD.open({0},FILE_WRITE);\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Abrir fichero %s en modo lectura",
+			"SDFileopenread",
+			"nombre_fichero",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile=SD.open({0},FILE_READ);\n",
+				"loop":""
+			}
+		],
 		[
 			"B",
 			"Fichero disponible",
@@ -105,7 +118,6 @@
 			"R",
 			"Tamaño del fichero",
 			"filesize",
-			"nombre_fichero",
 			{
 				"setup":"",
 				"inc":"",
@@ -135,7 +147,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"dataFile.print({0});",
+				"work":"dataFile.print({0});\n",
 				"loop":""
 			}
 		],
@@ -148,7 +160,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"dataFile.println({0});",
+				"work":"dataFile.println({0});\n",
 				"loop":""
 			}
 		],
@@ -161,17 +173,17 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"SD.close();",
+				"work":"dataFile.close();\n",
 				"loop":""
 			}
 		]	
 	],
 	"menus": {
-		"mode":["LECTURA","ESCRITURA"],
+		
 		"puertosSDCARD": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
 	},
 	"values":{
-		"LECTURA": FILE_READ, "ESCRITURA":FILE_WRITE,
+		
 		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
 	},
 	"translators":{
