@@ -15,7 +15,7 @@
 			"Port9",
 			{
 				"setup":"SD.begin({0});\n",
-				"inc":"#include \"SPI.h\"\n#include <SD.h>\n",
+				"inc":"#include \"SPI.h\"\n#include \"SD.h\"\n",
 				"def":"File dataFile;\n",
 				"work":"",
 				"loop":""
@@ -153,7 +153,7 @@
 		],
 		[
 			"w",
-			"Escribir en el fichero sin salto de linea %s",
+			"Escribir en el fichero con salto de linea %s",
 			"SDFilewriteln",
 			"Texto o valor a guardar en la tarjeta",
 			{
