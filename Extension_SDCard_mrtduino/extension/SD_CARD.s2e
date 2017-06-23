@@ -1,0 +1,180 @@
+{	"extensionName": "SD_CARD con SPI",
+	"description": "Extensión para leer y excribior en tarjetas SD. Previamente debe instalarse las librería SPI y la SD",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":9,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización SDCARD: pin CS %d.puertosSDCARD",
+			"SDbegin",
+			"Port9",
+			{
+				"setup":"SD.begin({0});\n",
+				"inc":"#include \"SPI.h\"\n#include <SD.h>\n",
+				"def":"File dataFile;",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Crear directorio %s",
+			"SDMkdir",
+			"nombre_directorio",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"SD.mkdir(\"{0}\");",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Borrar directorio %s",
+			"SDRmdir",
+			"nombre_directorio",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"SD.rmdir(\"{0}\");",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Abrir fichero %s en modo %m.mode",
+			"SDFileopen",
+			"nombre_fichero",
+			"ESCRITURA",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile=SD.open(\"{0}\",{1});",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Borrar fichero %s",
+			"SDFileremove",
+			"nombre_fichero",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"SD.remove(\"{0}\");",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Existe el fichero %s",
+			"fileexists",
+			"nombre_fichero",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"SD.exists(\"{0}\")",
+				"loop":""
+			}
+		],
+		["-"],
+		["-"],
+		[
+			"B",
+			"Fichero disponible",
+			"fileavailable",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile.available()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Tamaño del fichero",
+			"filesize",
+			"nombre_fichero",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile.size()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Leer un byte del fichero",
+			"fileread",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile.read()",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir en el fichero sin salto de linea %s",
+			"SDFilewrite",
+			"Texto o valor a guardar en la tarjeta",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile.print({0});",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir en el fichero sin salto de linea %s",
+			"SDFilewriteln",
+			"Texto o valor a guardar en la tarjeta",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile.println({0});",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Cerrar el fichero",
+			"SDFileclose",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"SD.close();",
+				"loop":""
+			}
+		]	
+	],
+	"menus": {
+		"mode":["LECTURA","ESCRITURA"],
+		"puertosSDCARD": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+	},
+	"values":{
+		"LECTURA": FILE_READ, "ESCRITURA":FILE_WRITE,
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+	},
+	"translators":{
+		
+	}
+}
