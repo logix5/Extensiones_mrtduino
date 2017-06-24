@@ -171,7 +171,7 @@
 			"Port1",
 			{
 				"setup":"dht.begin();\n",
-				"inc":"#include <DHT.h>\n",
+				"inc":"#include \"DHT.h\"\n",
 				"def":"DHT dht({0}, DHT11);\n",
 				"work":"",
 				"loop":""
