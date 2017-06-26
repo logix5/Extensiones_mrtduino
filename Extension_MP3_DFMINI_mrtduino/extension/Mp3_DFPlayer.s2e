@@ -1,0 +1,279 @@
+{	"extensionName": "Reproductor de mp3 usando el chip DFPlayer mini",
+	"description": "Extensión para reporducir mp3. Se tienen que usar dos librerías, la SoftwareSerial incluida en Arduino , aunque 
+	por las opciones de compilación, necesitamos añadirla. Luego la otra la librría DFRobotDFPlayerMini https://github.com/DFRobot/DFRobotDFPlayerMini .
+	Esto tenemos que verlo a la hora de poder añadirlas directamente en Arduino",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":10,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización MP3 en %d.portmp3 y %d.portmp3",
+			"DFminibegin",
+			"Port10",
+			"Port11",
+			{
+				"setup":"mySoftwareSerial.begin(9600);\nmyDFPlayer.begin(mySoftwareSerial);\nmyDFPlayer.setTimeOut(500);\nmyDFPlayer.outputDevice(DFPLAYER_DEVICE_SD);\n",
+				"inc":"#include \"SoftwareSerial.h\"\n#include \"DFRobotDFPlayerMini.h\"\n",
+				"def":"SoftwareSerial mySoftwareSerial({0}, {1});\nDFRobotDFPlayerMini myDFPlayer;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Equalizador MP3 %d.eq",
+			"DFminiEq",
+			"Normal",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.EQ({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Equalizador mp3",
+			"DFminiGetEq",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.readEQ()\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Fijar volumne MP3 %n",
+			"DFminiSetVolume",
+			"15",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.volume({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Subir Volumen mp3",
+			"DFminiIncreasevolume",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.volumeUp();\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Bajar Volumen mp3",
+			"DFminiDecreasevolume",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.volumeDown();\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Volumen mp3",
+			"DFminiGetVolume",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.readVolume()\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Estado del mp3",
+			"DFminiGetStatus",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.readState()\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Reproduce canción mp3 %n",
+			"DFminiPlaySong",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.play({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Reproduce canción mp3 %n en el directorio %n",
+			"DFminiPlaySonginFolder",
+			"1",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.playFolder({1}, {0});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Repite canción mp3 %n",
+			"DFminiPlayRepeatSong",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.loop({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Siguiente canción mp3",
+			"DFminiNextSong",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.next();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Canción anterior mp3",
+			"DFminiPreviousSong",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.previous();\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Ejecución aleatoria de todas las canciones mp3",
+			"DFminiplayrandom",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.randomAll();\n",
+				"loop":""
+			}
+		],
+				
+		[
+			"w",
+			"Pausa canción mp3",
+			"DFminiPauseSong",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.pause();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Reanuda canción mp3 desde la última pausa",
+			"DFminiStarSong",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.start();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Modo repetición de una canción mp3 habilitado",
+			"DFminirepeatonesongEnabled",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.enableLoop();\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Modo repetición de una canción mp3 deshabilitado",
+			"DFminirepeatonesongDisabled",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.disableLoop();\n",
+				"loop":""
+			}
+		],
+			
+		[
+			"w",
+			"Modo repetición todas las canciones mp3 habilitado",
+			"DFminirepeatallsongEnabled",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.enableLoopAll();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Modo repetición todas las canciones mp3 deshabilitado",
+			"DFminirepeatallsongDisabled",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myDFPlayer.disableLoopAll();\n",
+				"loop":""
+			}
+		]
+	],
+	"menus": {
+		"eq":["Normal","Pop","Rock","Jazz","Clásico","Bass"],
+		"portmp3": ["Port2", "Port3", "Port4", "Port10","Port11"]
+	},
+	"values":{
+		"Normal":0,"Pop":1,"Rock":2,"Jazz":3,"Clásico":4,"Bass":5,
+		"Port2": 15, "Port3": 16, "Port4": 14, "Port10": 9, "Port11": 11
+	},
+	"translators":{
+		
+	}
+}
