@@ -16,7 +16,7 @@
 			"Compassbegin",
 			{
 				"setup":" Wire.begin();\nmagnetometro.initialize();\n",
-				"inc":"#include \"I2Cdev.h\"\ninclude \"HMC5883L.h\"\n",
+				"inc":"#include \"I2Cdev.h\"\n#include \"HMC5883L.h\"\n",
 				"def":"HMC5883L magnetometro;\nint16_t mx, my, mz;\n",
 				"work":"",
 				"loop":""
