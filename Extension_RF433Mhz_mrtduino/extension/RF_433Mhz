@@ -1,0 +1,119 @@
+{	"extensionName": "RadioFrecuencia a 433Mhz Transmisor y Receptor",
+	"description": "Extensión para realizar transmisiones y recepciones por radiofrecuencia a 433Mhz. Necesita la librería VirtualWire",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":20,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización pin Tx RadioFrecuencia: %d.puertosRF",
+			"RFTxbegin",
+			"Port1",
+			{
+				"setup":"vw_set_tx_pin({0});\nvw_setup(2000);\n",
+				"inc":"#include \"VirtualWire.h\"\n",
+				"def":"",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Inicialización pin Rx RadioFrecuencia: %d.puertosRF",
+			"RFRxbegin",
+			"Port9",
+			{
+				"setup":"vw_set_rx_pin({0});\nvw_setup(2000);\nvw_rx_start();\n",
+				"inc":"#include \"VirtualWire.h\"\n",
+				"def":"",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Transmitir el mensaje %s con longitud total %n",
+			"RFSendMessage",
+			"Hola",
+			4,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"vw_send((uint8_t *){0},{1});\nvw_wait_tx();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Crear buffer de Recepción Rx de longitud %n",
+			"RFBufferRx",
+			4,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"uint8_t bufrx[{0}];\nuint8_t bufrxlen;",
+				"work":"",
+				"loop":""
+			}
+		],
+			
+		[
+			"B",
+			"Se ha recibido por Radiofrecuencia",
+			"RFReadMessage",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"vw_get_message(bufrx, &bufrxlen)",
+				"loop":""
+			}
+		],
+	
+			
+		[
+			"R",
+			"Longitud de mensaje recibido",
+			"RFlenghtMessage",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bufrxlen",
+				"loop":""
+			}
+		],
+				
+		[
+			"R",
+			"Carácter %n leido",
+			"RXcharReaded",
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bufrx[{0}]",
+				"loop":""
+			}
+		]		
+				
+	],
+	"menus": {
+		
+		"puertosRF": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+	},
+	"values":{
+		
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+	},
+	"translators":{
+		
+	}
+}
