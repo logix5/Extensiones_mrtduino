@@ -57,7 +57,7 @@
 			{
 				"setup":"",
 				"inc":"",
-				"def":"uint8_t bufrx[{0}];\nuint8_t bufrxlen;",
+				"def":"uint8_t bufrx[{0}];\nuint8_t bufrxlen;\n",
 				"work":"",
 				"loop":""
 			}
@@ -99,7 +99,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"bufrx[{0}]",
+				"work":"(char)bufrx[(int){0}]",
 				"loop":""
 			}
 		]		
