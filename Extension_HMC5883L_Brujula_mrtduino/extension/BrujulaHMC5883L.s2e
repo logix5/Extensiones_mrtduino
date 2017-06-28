@@ -1,0 +1,109 @@
+{	"extensionName": "Brújula HMC5883L I2C",
+	"description": "Extensión para usar la Brújula HMC5883L en el software MRTduino. Previamente debe instalarse las librerías 
+	https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/HMC5883L y https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/I2Cdev
+	o meterlas en el src para que coja las fuentes al compilar",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":15,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización Brújula HMC5883L",
+			"Compassbegin",
+			{
+				"setup":" Wire.begin();\nmagnetometro.initialize();\n",
+				"inc":"#include \"I2Cdev.h\"\ninclude \"HMC5883L.h\"\n",
+				"def":"HMC5883L magnetometro;\nint16_t mx, my, mz;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Leer y almacenar lo valores de la brújula",
+			"CompassGetValues",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"magnetometro.getHeading(&mx, &my, &mz);\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Componente X de la Brújula",
+			"CompassGetValueX",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"mx\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Componente Y de la Brújula",
+			"CompassGetValueY",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"my\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Componente Z de la Brújula",
+			"CompassGetValueZ",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"mz\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Orinetación del Norte Magnético en radianes",
+			"CompassMagneticNorth1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"atan2(my, mx)\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Orinetación del Norte Magnético en grados",
+			"CompassMagneticNorth2",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"atan2(my, mx)*(180/M_PI)\n",
+				"loop":""
+			}
+		]
+		
+	],
+	"menus": {
+		
+	},
+	"values":{
+		
+	},
+	"translators":{
+		
+	}
+}
