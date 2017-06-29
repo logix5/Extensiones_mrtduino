@@ -1,0 +1,152 @@
+{
+    "extensionName": "TM1637 matriz de 4 digitos de 7 segmentos",
+	"description": "Extensión para representar valores en los 7 segmentos",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":10,
+	"extensionPort": 0,
+	"firmware":"1.0",
+	"javascriptURL":"",
+	"blockSpecs": [
+
+		 ["w",
+			"Inicialización TM1637-7 Segmentos. CLK %d.puertosall DIO %d.puertosall y brillo %d.brillo",
+			"TM1637init",
+			"Port9",
+			"Port10",
+			5,
+			{
+				"setup":"",
+				"inc":"#include \"TM1637.h\"\n",
+				"def":"TM1637 matriz_led({0},{1},4,{2});\n",
+				"work":"",
+				"loop":""
+			}
+		],
+			
+		["w",
+			"Activar TM1637-7 Segmentos",
+			"TM1637Shutdown",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"matriz_led.activar();\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Borrar TM1637-7 Segmentos",
+			"TM1637delete",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"matriz_led.borrar();\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Nivel de Brillo %n TM1637-7 Segmentos",
+			"TM1637Brightness",
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"matriz_led.cambiar_brillo({0});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Visulaizar Segmento %d.segmento en posición %d.posicion",
+			"TM1637Segment",
+			"G",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"matriz_led.escribir_segmento({1},{0});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Escribir dígito %d.digito en posición %d.posicion.Poner punto %d.punto",
+			"TM1637Digit",
+			"0",
+			"0",
+			"NO",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"matriz_led.escribir_digito({1},{0},{2});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Escribir valor numérico %n",
+			"TM1637Number",
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"matriz_led.escribir_valor({0});\n",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Escribir hora %n y minutos %n.Poner dos puntos %d.punto",
+			"TM1637hour_and_minutes",
+			12,
+			12,
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"matriz_led.escribir_horas_minutos({0},{1},{2});\n"
+				"loop":""
+			}
+		],
+		["w",
+			"Escribir minutos %n y segundos %n.Poner dos puntos %d.punto",
+			"TM1637minutes_and_seconds",
+			12,
+			12,
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"matriz_led.escribir_minutos_segundos({0},{1},{2});\n",
+				"loop":""
+			}
+		]
+		
+		
+    ],
+	"menus": {
+		"posicion": ["0","1","2","3","4"],
+		"punto":["SI","NO"],
+		"segmento": ["a","b","c","d","e","f","g","punto","nada"], 
+		"digito": ["0","1","2","3","4","5","6","7","8","9"],
+		"puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+	},
+	"values":{
+	    "a":1,"b":2,"c":4,"d":16,"e":32,"f":64,"g":128,"punto":256,"nada":0,
+		"SI":1, "NO":0,
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+	},
+	"translators":{
+	}
+}
