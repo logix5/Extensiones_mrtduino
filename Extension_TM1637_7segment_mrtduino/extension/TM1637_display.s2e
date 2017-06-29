@@ -11,7 +11,7 @@
 	"blockSpecs": [
 
 		 ["w",
-			"Inicialización TM1637-7 Segmentos. CLK %d.puertosall DIO %d.puertosall y brillo %d.brillo",
+			"Inicialización TM1637-7 Segmentos.CLK %d.puertosall DIO %d.puertosall y brillo %n",
 			"TM1637init",
 			"Port9",
 			"Port10",
@@ -26,7 +26,7 @@
 		],
 			
 		["w",
-			"Activar TM1637-7 Segmentos",
+			"Activar TM1637 7Segmentos",
 			"TM1637Shutdown",
 			{
 				"setup":"",
@@ -38,7 +38,7 @@
 		],
 		
 		["w",
-			"Borrar TM1637-7 Segmentos",
+			"Borrar TM1637 7Segmentos",
 			"TM1637delete",
 			{
 				"setup":"",
@@ -50,7 +50,7 @@
 		],
 		
 		["w",
-			"Nivel de Brillo %n TM1637-7 Segmentos",
+			"Nivel de Brillo TM1637-7 %n",
 			"TM1637Brightness",
 			0,
 			{
@@ -63,9 +63,9 @@
 		],
 		
 		["w",
-			"Visulaizar Segmento %d.segmento en posición %d.posicion",
+			"Visualizar Segmento %d.segmento en posición %d.posicion",
 			"TM1637Segment",
-			"G",
+			"nada",
 			"0",
 			{
 				"setup":"",
@@ -75,9 +75,8 @@
 				"loop":""
 			}
 		],
-		
 		["w",
-			"Escribir dígito %d.digito en posición %d.posicion.Poner punto %d.punto",
+			"Escribir dígito %d.digito en posición %d.posicion .Poner punto %d.punto",
 			"TM1637Digit",
 			"0",
 			"0",
@@ -90,10 +89,9 @@
 				"loop":""
 			}
 		],
-		
 		["w",
 			"Escribir valor numérico %n",
-			"TM1637Number",
+			"TM1637NumberTotal",
 			0,
 			{
 				"setup":"",
@@ -105,38 +103,40 @@
 		],
 		
 		["w",
-			"Escribir hora %n y minutos %n.Poner dos puntos %d.punto",
-			"TM1637hour_and_minutes",
-			12,
-			12,
+			"Escribir horas y minutos %n %n .Poner dos puntos %d.punto",
+			"TM1637Hourandminutes",
+			0,
+			0,
 			"SI",
 			{
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"matriz_led.escribir_horas_minutos({0},{1},{2});\n"
+				"work":"matriz_led.escribir_horas_minutos({0},{1},{2},false);\n",
 				"loop":""
 			}
 		],
+		
 		["w",
-			"Escribir minutos %n y segundos %n.Poner dos puntos %d.punto",
-			"TM1637minutes_and_seconds",
-			12,
-			12,
+			"Escribir minutos y segundos %n %n .Poner dos puntos %d.punto",
+			"TM1637Minutesandseconds",
+			0,
+			0,
 			"SI",
 			{
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"matriz_led.escribir_minutos_segundos({0},{1},{2});\n",
+				"work":"matriz_led.escribir_minutos_segundos({0},{1},{2},false);\n",
 				"loop":""
 			}
 		]
 		
 		
+		
     ],
 	"menus": {
-		"posicion": ["0","1","2","3","4"],
+		"posicion": ["0","1","2","3"],
 		"punto":["SI","NO"],
 		"segmento": ["a","b","c","d","e","f","g","punto","nada"], 
 		"digito": ["0","1","2","3","4","5","6","7","8","9"],
