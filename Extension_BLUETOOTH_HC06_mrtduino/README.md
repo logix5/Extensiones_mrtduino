@@ -28,6 +28,8 @@ Obtener la version del firmware:
 Enviar: AT+VERSION
 Recibe: Linvor1.8
 
+![image](https://user-images.githubusercontent.com/28557392/27766040-734795c2-5ec3-11e7-902e-6b960cb07821.png)
+
 
 
 
