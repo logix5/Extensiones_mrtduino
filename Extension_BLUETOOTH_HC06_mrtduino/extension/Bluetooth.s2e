@@ -1,0 +1,275 @@
+{	"extensionName": "Bluetooth",
+	"description": "Extensión para el bluetooth",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":21,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+    "blockSpecs": [
+        
+		[
+			"w",
+			"Inicialización Bluetooth %d.baudios",
+			"BTbegin",
+			"9600",
+			{
+				"setup":"Serial1.begin({0});\nbt.BTinit();\n",
+				"inc":"#include \"Bluetooth.h\"\n",
+				"def":"Bluetooth bt;\nint long_rx;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Enviar %s por Bluetooth sin salto de línea",
+			"BTsendvalues",
+			"Texto a enviar",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.print({0});",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Enviar %s por Bluetooth con salto de línea",
+			"BTsendvaluesln",
+			"Texto a enviar",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.println({0});",
+				"loop":""
+			}
+		],
+		      
+		[
+		  "B",
+			"Recibido del PAD movil",
+			"BTpadreceived",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(Serial1.available()>=9)",
+				"loop":""
+			}
+		],
+		[
+		  "B",
+			"Recibido byte del BT",
+			"BTbytereceived",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"((long_rx=Serial1.available())>0)",
+				"loop":""
+			}
+		],
+		
+		[
+		  "R",
+			"Leer byte del BT",
+			"BTbytereaded",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.read()",
+				"loop":""
+			}
+		],
+		
+		[
+		  "R",
+			"Longitud recibida",
+			"BTbytelenghtreaded",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"long_rx",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Almacenar comandos del PAD BT",
+			"BTProcessCommand",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BTReadMobileApplicationCommand();\n",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Tecla F1",
+			"BTF1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_F1_received()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Tecla F2",
+			"BTF2",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_F2_received()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Tecla F3",
+			"BTF3",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_F3_received()",
+				"loop":""
+			}
+		],	
+		[
+			"B",
+			"Tecla F4",
+			"BTF4",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_F4_received()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Tecla F5",
+			"BTF5",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_F5_received()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Tecla F6",
+			"BTF6",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_F6_received()",
+				"loop":""
+			}
+		],
+        [
+			"R",
+			"Valor X del BT",
+			"BTXvalue",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_Value_X()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Valor Y del BT",
+			"BTYvalue",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_Value_Y()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Valor Z del BT",
+			"BTZvalue",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_Value_Z()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Valor aX del BT",
+			"BTaXvalue",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_Value_aX()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Valor aY del BT",
+			"BTaYvalue",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_Value_aY()",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Valor aZ del BT",
+			"BTaYvalue",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.BT_Value_aZ()",
+				"loop":""
+			}
+		]
+		
+		
+		
+       
+   ],
+    "menus": {
+		"baudios":["1200","2400","4800","9600","19200","38400","57600","115200"]
+    },
+    "values": {
+              
+    },
+    "translators": {
+        
+    }
+}
