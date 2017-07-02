@@ -341,7 +341,50 @@
 		"work":"analogRead({0})",
 		"loop":""}],
 		 
+		 ["B",
+		"Alcohol (MQ-3) %d.puertosall",
+		"getAlcohol",
+		"Port1",
+         {"encode":"{d0}",
+		 "setup":"pinMode({0},INPUT);\n",
+		 "inc":"",
+		 "def":"",
+		 "work":"digitalRead({0})",
+		 "loop":""}],
 		 
+		 ["R",
+		"Cantidad de Alcohol( %d.puertosanalog )",
+		"getAlcoholAnalog",
+		"Port5",
+        {"encode":"{d0}",
+		"setup":"pinMode({0},INPUT);\n",
+		"inc":"",
+		"def":"",
+		"work":"analogRead({0})",
+		"loop":""}],
+		 
+		  ["B",
+		"Gas y Humo (MQ-2) %d.puertosall",
+		"getGas",
+		"Port1",
+         {"encode":"{d0}",
+		 "setup":"pinMode({0},INPUT);\n",
+		 "inc":"",
+		 "def":"",
+		 "work":"digitalRead({0})",
+		 "loop":""}],
+		 
+		 ["R",
+		"Cantidad de Gas y Humo( %d.puertosanalog )",
+		"getGasAnalog",
+		"Port5",
+        {"encode":"{d0}",
+		"setup":"pinMode({0},INPUT);\n",
+		"inc":"",
+		"def":"",
+		"work":"analogRead({0})",
+		"loop":""}],
+		 		 
 		 ["B",
 		"Humedad (Higrometro FC-28) %d.puertosall",
 		"getHumedad",
@@ -374,10 +417,7 @@
 		"def":"",
 		"work":"analogRead({0})",
 		"loop":""}]
-		
-		
-		
-		
+			
 		
     ],
 	"menus": {
