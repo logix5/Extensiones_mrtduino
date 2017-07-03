@@ -1,0 +1,186 @@
+{	"extensionName": "IMU6050 ",
+	"description": "Extensión para usar el IMU MPU6050 en el software MRTduino. Previamente debe instalarse la librería 
+	 https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050 ",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":14,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización MPU6050 dirección %d.adresss",
+			"MPUbegin",
+			"0x68",
+			{
+				"setup":" Wire.begin();\nmpu.initialize();\n",
+				"inc":"#include \"I2Cdev.h\"\n#include \"MPU6050.h\"\n",
+				"def":"int ax, ay, az;\nint gx, gy, gz;\nMPU6050 mpu({0});\nconst float accScale = 2.0 * 9.81;\nconst float gyroScale = 250.0 / 32768.0;\nconst float accConversion = accScale * 9.81 / 32768.0;\nconst float accGyroScale = gyroScale / 32768.0;\n",
+				"work":"",
+				"loop":""
+			}
+		],		
+		
+		
+		[
+			"B",
+			"MPU6050 inicializado correctamente",
+			"MPUinitcheck",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"mpu.testConnection()\n",
+				"loop":""
+			}
+		],
+				
+		[
+			"w",
+			"Leer y almacenar los valores del MPU6050",
+			"MPUGetValues",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"mpu.getAcceleration(&ax, &ay, &az);\nmpu.getRotation(&gx, &gy, &gz);\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Componente ax del acelerómetro",
+			"MPUGetValueaX",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(ax*accConversion)\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Componente ay del acelerómetro",
+			"MPUGetValueaY",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(ay*accConversion)\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Componente az del acelerómetro",
+			"MPUGetValueaZ",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(az*accConversion)\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Componente gx del giroscopo",
+			"MPUGetValuegX",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(gx*accGyroScale)\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Componente gy del giroscopo",
+			"MPUGetValuegY",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(gy*accGyroScale)\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Componente gz del giroscopo",
+			"MPUGetValuegZ",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(gz*accGyroScale)\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Inclinación eje X",
+			"MPUGetValueinclinationX",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(atan(ax / sqrt(pow(ay, 2) + pow(az, 2)))*(180.0 / 3.14))\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Inclinación eje Y",
+			"MPUGetValueinclinationY",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(atan(ay / sqrt(pow(ax, 2) + pow(az, 2)))*(180.0 / 3.14))\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Rotación en eje X",
+			"MPUGetValuerotationX",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"long tiempo_prev;\nfloat dt;\nfloat ang_x, ang_y;\nfloat ang_x_prev,ang_y_prev;\nvoid updateFiltered(){\ndt = (millis() - tiempo_prev) / 1000.0;\ntiempo_prev = millis();\nfloat accel_ang_x = atan(ay / sqrt(pow(ax, 2) + pow(az, 2)))*(180.0 / 3.14);\nfloat accel_ang_y = atan(-ax / sqrt(pow(ay, 2) + pow(az, 2)))*(180.0 / 3.14);\nang_x = 0.98*(ang_x_prev + (gx / 131)*dt) + 0.02*accel_ang_x;\nang_y = 0.98*(ang_y_prev + (gy / 131)*dt) + 0.02*accel_ang_y;\nang_x_prev = ang_x;\nang_y_prev = ang_y;}\n",
+				"work":"ang_x\n",
+				"loop":"updateFiltered();\n"
+			}
+		],
+		[
+			"R",
+			"Rotación en eje Y",
+			"MPUGetValuerotationY",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"long tiempo_prev;\nfloat dt;\nfloat ang_x, ang_y;\nfloat ang_x_prev,ang_y_prev;\nvoid updateFiltered(){\ndt = (millis() - tiempo_prev) / 1000.0;\ntiempo_prev = millis();\nfloat accel_ang_x = atan(ay / sqrt(pow(ax, 2) + pow(az, 2)))*(180.0 / 3.14);\nfloat accel_ang_y = atan(-ax / sqrt(pow(ay, 2) + pow(az, 2)))*(180.0 / 3.14);\nang_x = 0.98*(ang_x_prev + (gx / 131)*dt) + 0.02*accel_ang_x;\nang_y = 0.98*(ang_y_prev + (gy / 131)*dt) + 0.02*accel_ang_y;\nang_x_prev = ang_x;\nang_y_prev = ang_y;}\n",
+				"work":"ang_y\n",
+				"loop":"updateFiltered();\n"
+			}
+		]		
+	],
+	"menus": {
+		"adresss":["0x68","0x69"]
+	},
+	"values":{
+		
+	},
+	"translators":{
+		
+	}
+}
