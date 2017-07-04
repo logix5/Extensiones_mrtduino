@@ -364,7 +364,7 @@
 		"loop":""}],
 		 
 		  ["B",
-		"Gas y Humo (MQ-2) %d.puertosall",
+		"Gas y Humo (MQ-135) %d.puertosall",
 		"getGas",
 		"Port1",
          {"encode":"{d0}",
