@@ -1,0 +1,102 @@
+{	"extensionName": "Módulo WifiESP8266",
+	"description": "Extensión para realizar transmisiones y recepciones por wifi. Para hacer programas más complejos lo mejor 
+	es usar la librería https://github.com/itead/ITEADLIB_Arduino_WeeESP8266",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":14,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización Wifi ESP8266 sin librería",
+			"Wifibegin",
+			"Port1",
+			{
+				"setup":"Serial1.begin(115200);\n",
+				"inc":"",
+				"def":"",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Inicialización Wifi ESP8266 con librería",
+			"ESP8266begin",
+			{
+				"setup":"",
+				"inc":"#include \"ESP8266.h\"\n",
+				"def":"ESP8266 wifi(Serial1);\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"B",
+			"Dato recibido por Wifi",
+			"WifiReadMessage",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.available()",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Dato recibido Wifi",
+			"RXcharReaded",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.read()",
+				"loop":""
+			}
+		],		
+		[
+			"w",
+			"Escribir en el puerto serie el dato recibido Wifi",
+			"SendcharReadedtoSerial",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial.write(Serial1.read());\n",
+				"loop":""
+			}
+		],	
+		[
+			"w",
+			"Enviar el comando AT %s",
+			"WifiSendMessage",
+			"AT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.write({0});\nSerial1.write("\r\n");\n",
+				"loop":""
+			}
+		]
+						
+	],
+	"menus": {
+		
+		
+	},
+	"values":{
+		
+		
+	},
+	"translators":{
+		
+	}
+}
