@@ -1,0 +1,141 @@
+{	"extensionName": "Interrupciones Externas",
+	"description": "Extensión para usar las interrupciones externas",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":2,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Configuración Interrupción Externa %d.numINT de tipo %d.tipoINT .Función callback_%n",
+			"ConfigInterrupt",
+			"0",
+			"FALLING",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"attachInterrupt({0}, callback_{2}, {1});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Deshabilitar todas las interrupciones",
+			"DisableInterrupt",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"noInterrupts();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Habilitar todas las interrupciones",
+			"DisableInterrupts",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"interrupts();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Deshabilitar interrupción externa %d.numINT",
+			"DisableOneInterrupt",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"detachInterrupt({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Variable volatile para interrupción externa varInt_%n",
+			"ConfigVariable",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"volatile int varInt_{0};\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Incrementar en uno varInt_%n",
+			"AddVariable",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"varInt_{0}++;\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Decrementar en uno varInt_%n",
+			"DecreaseVariable",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"varInt_{0}--;\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Asignar el valor %n a varInt_%n",
+			"AssignVariable",
+			"1",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"varInt_{1}={0};\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"varInt_%n",
+			"GetVariable",
+			"1",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"varInt_{0}",
+				"loop":""
+			}
+		]
+		
+	],
+	"menus": {
+		"numINT": ["0", "1", "2", "3"],
+		"tipoINT": ["LOW","CHANGE","RISING","FALLING"]
+	},
+	"values":{
+		"LOW":0,"CHANGE":1,"FALLING":2,"RISING":3
+	},
+	"translators":{
+		
+	}
+}
