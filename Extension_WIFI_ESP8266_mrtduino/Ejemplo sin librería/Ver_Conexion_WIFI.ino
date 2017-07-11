@@ -37,7 +37,7 @@ void loop(){
         }
         if(((Estado)==(3))){
             Serial.write("Comando4\n");
-            Serial1.write("AT+CWJAP=\"MOVISTAR_A550\",\"Fji4mh4jen9lo4F3lsll\"");
+            Serial1.write("AT+CWJAP=\"MOVISTAR_A550\",\"xxxxxx\"");
              Serial1.write("\r\n");
         }
         
