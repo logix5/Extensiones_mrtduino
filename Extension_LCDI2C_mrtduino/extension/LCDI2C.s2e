@@ -122,7 +122,7 @@
 		"cursor no parpadea":4
 	},
 	"translators":{
-	 "EN":{
+	 "en":{
 	       "Inicialización LCD en %d.lcdaddr con %d.lines líneas y %d.cols carcateres por línea":"Set LCD at %d.lcdaddr has %d.lines lines and %d.cols characters per line",
 	       "Esribe en la línea %d.line y columna Col %d.col el texto %s ":"LCD at Line %d.line and Col %d.col Show %s ",
 	       "Poner el backlight del LCD %d.switch ":"The backlight of LCD Turn %d.switch",
