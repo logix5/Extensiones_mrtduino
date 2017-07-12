@@ -51,7 +51,7 @@
 		
 		[
 			"R",
-			"Dato recibido Wifi",
+			"Leer Dato recibido Wifi",
 			"RXcharReaded",
 			{
 				"setup":"",
