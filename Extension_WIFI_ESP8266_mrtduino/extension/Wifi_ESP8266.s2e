@@ -12,7 +12,21 @@
 		[
 			"w",
 			"Inicialización Wifi ESP8266 sin librería",
-			"Wifibegin",
+			"WifiESP8266begin",
+			"Port1",
+			{
+				"setup":"Serial1.begin(115200);\n",
+				"inc":"",
+				"def":"",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Inicialización Wifi HLK-RM04",
+			"WifiHLKbegin",
 			"Port1",
 			{
 				"setup":"Serial1.begin(115200);\n",
@@ -75,8 +89,34 @@
 		],	
 		[
 			"w",
-			"Enviar el comando AT %s",
+			"Enviar por WIFI %s sin salto de linea",
 			"WifiSendMessage",
+			"Hi wifi",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.print({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Enviar por WIFI %s con salto de linea",
+			"WifiSendMessage",
+			"Hi wifi",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.println({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Enviar el comando AT %s",
+			"WifiSendATMessage",
 			"AT",
 			{
 				"setup":"",
