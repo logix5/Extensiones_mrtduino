@@ -1,4 +1,4 @@
-{	"extensionName": "Módulo WifiESP8266",
+{	"extensionName": "Módulo WifiESP8266 y HLK-RM04",
 	"description": "Extensión para realizar transmisiones y recepciones por wifi. Para hacer programas más complejos lo mejor 
 	es usar la librería https://github.com/itead/ITEADLIB_Arduino_WeeESP8266",
 	"version": "1.0",
@@ -13,7 +13,6 @@
 			"w",
 			"Inicialización Wifi ESP8266 sin librería",
 			"WifiESP8266begin",
-			"Port1",
 			{
 				"setup":"Serial1.begin(115200);\n",
 				"inc":"",
@@ -22,12 +21,10 @@
 				"loop":""
 			}
 		],
-		
 		[
 			"w",
 			"Inicialización Wifi HLK-RM04",
 			"WifiHLKbegin",
-			"Port1",
 			{
 				"setup":"Serial1.begin(115200);\n",
 				"inc":"",
@@ -36,7 +33,6 @@
 				"loop":""
 			}
 		],
-		
 		[
 			"w",
 			"Inicialización Wifi ESP8266 con librería",
@@ -49,10 +45,9 @@
 				"loop":""
 			}
 		],
-		
 		[
 			"B",
-			"Dato recibido por Wifi",
+			"Hay datos recibidos por Wifi",
 			"WifiReadMessage",
 			{
 				"setup":"",
@@ -62,7 +57,6 @@
 				"loop":""
 			}
 		],
-		
 		[
 			"R",
 			"Leer Dato recibido Wifi",
@@ -74,7 +68,8 @@
 				"work":"Serial1.read()",
 				"loop":""
 			}
-		],		
+		],
+
 		[
 			"w",
 			"Escribir en el puerto serie el dato recibido Wifi",
@@ -103,8 +98,8 @@
 		[
 			"w",
 			"Enviar por WIFI %s con salto de linea",
-			"WifiSendMessage",
-			"Hi wifi",
+			"WifiSendlnMessage",
+			"Hi wifi ln",
 			{
 				"setup":"",
 				"inc":"",
@@ -115,18 +110,19 @@
 		],
 		[
 			"w",
-			"Enviar el comando AT %s",
+			"Enviar el comando AT %s ",
 			"WifiSendATMessage",
-			"AT",
+			"AT ",
 			{
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"Serial1.write({0});\nSerial1.write("\r\n");\n",
+				"work":"Serial1.write({0});\nSerial1.write(\"\\r\\n\");\n",
 				"loop":""
 			}
 		]
 						
+		
 	],
 	"menus": {
 		
