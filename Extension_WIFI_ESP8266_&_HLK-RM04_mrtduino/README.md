@@ -1,5 +1,10 @@
 # Extension_WIFI_ESP8266_HLK-RM04_mrtduino
-Extensión para realizar transmisiones y recepciones por wifi. Para hacer programas más complejos lo mejor es usar la 
+
+![image](https://user-images.githubusercontent.com/28557392/28160730-614a99bc-67c1-11e7-960e-74ea3a1622fa.png)
+
+![image](https://user-images.githubusercontent.com/28557392/28161038-49bfa17e-67c2-11e7-8671-c674822bc3a9.png)
+
+Extensión para realizar transmisiones y recepciones por wifi. Para hacer programas más complejos con el ESP8266 lo mejor es usar la 
 librería https://github.com/itead/ITEADLIB_Arduino_WeeESP8266
 
 Para esta extensión hemso usado el puerto Serie HW de la placa Arduino Leonardo. Aqui LA TX va con la RX del módulo Wifi y viceversa. 
