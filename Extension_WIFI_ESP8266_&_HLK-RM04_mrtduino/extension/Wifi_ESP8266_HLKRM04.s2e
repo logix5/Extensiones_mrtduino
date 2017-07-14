@@ -11,10 +11,11 @@
 	"blockSpecs": [
 		[
 			"w",
-			"Inicialización Wifi ESP8266 sin librería",
+			"Inicialización Wifi ESP8266 sin librería %d.baudios",
 			"WifiESP8266begin",
+			"115200",
 			{
-				"setup":"Serial1.begin(115200);\n",
+				"setup":"Serial1.begin({0});\n",
 				"inc":"",
 				"def":"",
 				"work":"",
@@ -23,10 +24,11 @@
 		],
 		[
 			"w",
-			"Inicialización Wifi HLK-RM04",
+			"Inicialización Wifi HLK-RM04 %d.baudios",
 			"WifiHLKbegin",
+			"115200",
 			{
-				"setup":"Serial1.begin(115200);\n",
+				"setup":"Serial1.begin({0});\n",
 				"inc":"",
 				"def":"",
 				"work":"",
@@ -125,7 +127,7 @@
 		
 	],
 	"menus": {
-		
+		"baudios":["1200","2400","4800","9600","19200","38400","57600","115200"]
 		
 	},
 	"values":{
