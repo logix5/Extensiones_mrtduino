@@ -74,7 +74,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"lcd.scrollDisplayRight();\n",
+				"work":"lcd_I2C.scrollDisplayRight();\n",
 				"loop":""
 			}
 		],
@@ -86,7 +86,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"lcd.scrollDisplayLeft();\n",
+				"work":"lcd_I2C.scrollDisplayLeft();\n",
 				"loop":""
 			}
 		],
