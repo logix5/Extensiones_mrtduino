@@ -41,8 +41,8 @@
 			"7MWRTNYIWQ3T3E0X",
 			{
 				"setup":"",
-				"inc":"",
-				"def":"#include \"IOT_ts.h\"\nIot_thinkspeak iot({0});\n",
+				"inc":"#include \"IOT_ts.h\"\n",
+				"def":"Iot_thinkspeak iot({0});\n",
 				"work":"",
 				"loop":""
 			}
