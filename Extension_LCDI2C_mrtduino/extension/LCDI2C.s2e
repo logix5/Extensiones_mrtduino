@@ -98,7 +98,7 @@
 			{
 				"setup":"",
 				"inc":"",
-				"def":"void setLCDindicator(LiquidCrystal_I2C *pLCD, int indstate){\nif (indstate==1) pLCD->cursor_on();\nelse if (indstate==2) pLCD->cursor_off();\nelse if (indstate==3) pLCD->blink_on();\nelse if (indstate==4) pLCD->blink_off();\n}\n",
+				"def":"void setLCDindicator(LiquidCrystal_I2C *pLCD, int indstate){\nif (indstate==1) pLCD->cursor_on();\nelse if (indstate==2) pLCD->cursor_off();\nelse if (indstate==3) pLCD->blink_on();\nelse if (indstate==4) pLCD->blink_off();}\n",
 				"work":"setLCDindicator(&lcd_I2C, {0} );\n",
 				"loop":""
 			}
