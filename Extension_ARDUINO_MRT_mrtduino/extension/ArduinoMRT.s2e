@@ -116,7 +116,7 @@
          {"encode":"{d0}",
 		 "setup":"",
 		 "inc":"",
-		 "def":"float getDistance(int trig,int echo){\npinMode(trig,OUTPUT);\ndigitalWrite(trig,LOW);\ndelayMicroseconds(2);\ndigitalWrite(trig,HIGH);\ndelayMicroseconds(10);\ndigitalWrite(trig,LOW);\npinMode(echo, INPUT);\nint dist=pulseIn(echo,HIGH,30000)/58.0;\nreturn constrain(dist,0,50);\n}\n",
+		 "def":"float getDistance(int trig,int echo){\npinMode(trig,OUTPUT);\ndigitalWrite(trig,LOW);\ndelayMicroseconds(2);\ndigitalWrite(trig,HIGH);\ndelayMicroseconds(10);\ndigitalWrite(trig,LOW);\npinMode(echo, INPUT);\nint dist=pulseIn(echo,HIGH,30000)/58.0;\nreturn dist;\n}\n",
 		 "work":"getDistance({0},{1})",
 		 "loop":""}],
 		 
