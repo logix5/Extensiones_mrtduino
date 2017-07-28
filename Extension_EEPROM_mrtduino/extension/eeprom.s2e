@@ -1,0 +1,105 @@
+{	"extensionName": "Eeprom",
+	"description": "Extensión para usar la eeprom interna de la placa mrtduino",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":3,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+	    [
+			"w",
+			"Inicialización EEPROM",
+			"EEPROMInit",
+			{
+				"setup":"",
+				"inc":"#include \"EEPROM.h\"",
+				"def":"",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir un byte. Valor %n en la dirección %n",
+			"WritebyteEEPROM",
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"EEPROM.write({1},{0});\n",
+				"loop":""
+			}
+		],
+	    [
+			"w",
+			"Escribir mas de un byte.Valor %n en la dirección %n",
+			"WriteEEPROM",
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"EEPROM.put({1},{0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Update EEPROM.Valor %n en la dirección %n",
+			"UpdateEEPROM",
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"EEPROM.update({1},{0});\n",
+				"loop":""
+			}
+		],
+	    	
+		[
+			"R",
+			"Leer un byte de la dirección %n",
+			"ReadbyteEEPROM",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"EEPROM.read({0})",
+				"loop":""
+			}
+		],
+	    [
+			"w",
+			"Leer en la variable %n el contenido de la dirección %n",
+			"ReadEEPROM",
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"EEPROM.get({1},{0});\n",
+				"loop":""
+			}
+		],
+		
+		
+	],
+	"menus": {
+		
+	},
+	"values":{
+		
+	},
+	"translators":{
+		
+	}
+}
