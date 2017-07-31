@@ -1,10 +1,9 @@
-{	"extensionName": "Sensor APDS-9960",
-	"description": "Extensión para usar el sensor que permite detectar gestos y colores entre otras cosas.Se ha gestionado sin interrupción. Tener en cuenta 
-	retardos entre las lecturas",
+{	"extensionName": "APDS-9960 con I2C",
+	"description": "Extensión para usar el sensor APDS9960 para detectar gestos y ver la luz ambiente",
 	"version": "1.0",
 	"author": "Oscar Ferruz (oferruz@logix5.com)",
 	"homepage": "https://github.com/logix5",
-	"sort":14,
+	"sort":3,
 	"javascriptURL":"",
 	"firmware":"1.0",
   	"extensionPort":0,
@@ -12,7 +11,7 @@
 		[
 			"w",
 			"Inicialización sensor de gestos y color APDS-9960",
-			"APDS9960begin"
+			"APDS9960begin",
 			{
 				"setup":"apds.init();\n",
 				"inc":"#include \"SparkFun_APDS9960.h\"\n",
@@ -89,7 +88,7 @@
 			"w",
 			"Configurar ganancia para la detección de colores %d.gain_abl",
 			"APDS9960ambientlightgain",
-			"GGAIN_4X",
+			"AGAIN_4X",
 			{
 				"setup":"",
 				"inc":"",
@@ -248,16 +247,13 @@
 	"menus": {
 		"gain_gesture":["GGAIN_1X","GGAIN_2X","GGAIN_4X","GGAIN_8X"],
 		"gain_abl":["AGAIN_1X","AGAIN_4X","AGAIN_16X","AGAIN_64X"]
-
 	},
 	"values":{
 		"GGAIN_1X":0,"GGAIN_2X":1,"GGAIN_4X":2,"GGAIN_8X":3,	
 		"AGAIN_1X":0,"AGAIN_4X":1,"AGAIN_16X":2,"AGAIN_64X":3
 	},
 	"translators":{
-	 "en":{
-	       
-	 }		
+	 
 		
 	}
 }
