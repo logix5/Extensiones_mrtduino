@@ -1,0 +1,263 @@
+{	"extensionName": "Sensor APDS-9960",
+	"description": "Extensión para usar el sensor que permite detectar gestos y colores entre otras cosas.Se ha gestionado sin interrupción. Tener en cuenta 
+	retardos entre las lecturas",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":14,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización sensor de gestos y color APDS-9960",
+			"APDS9960begin"
+			{
+				"setup":"apds.init();\n",
+				"inc":"#include \"SparkFun_APDS9960.h\"\n",
+				"def":"SparkFun_APDS9960 apds = SparkFun_APDS9960();\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Habilitar la detección de gestos APDS-9960",
+			"APDS9960gestureenable",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"apds.enableGestureSensor(false);\n",
+				"loop":""
+			}
+		
+		],
+		[
+			"w",
+			"Habilitar la detección de colores APDS-9960",
+			"APDS9960colorenable",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"uint16_t ambient_light=0;\nuint16_t red_light=0;\nuint16_t green_light=0;\nuint16_t blue_light=0;\n",
+				"work":"apds.enableLightSensor(false);\n",
+				"loop":""
+			}
+		
+		],
+		[
+			"w",
+			"Deshabilitar la detección de gestos APDS-9960",
+			"APDS9960disable",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"apds.disableGestureSensor();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Deshabilitar la detección de colores APDS-9960",
+			"APDS9960colourdisable",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"apds.disableLightSensor();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Configurar ganancia para la detección de gestos %d.gain_gesture",
+			"APDS9960gesturegain",
+			"GGAIN_4X",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"apds.setGestureGain({0});\n",
+				"loop":""
+			}
+		
+		],
+		[
+			"w",
+			"Configurar ganancia para la detección de colores %d.gain_abl",
+			"APDS9960ambientlightgain",
+			"GGAIN_4X",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"apds.setAmbientLightGain({0});\n",
+				"loop":""
+			}
+		
+		],
+		[
+			"B",
+			"Gesto detectado",
+			"APDS9960present",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"apds.isGestureAvailable()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Gesto realizado",
+			"APDS9960gesture",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"apds.readGesture()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Gesto hacia arriba",
+			"APDS9960gestureUP",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(apds.readGesture()==DIR_UP)",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Gesto hacia abajo",
+			"APDS9960gestureDOWN",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(apds.readGesture()==DIR_DOWN)",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Gesto hacia la izquierda",
+			"APDS9960gestureLEFT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(apds.readGesture()==DIR_LEFT)",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Gesto hacia la derecha",
+			"APDS9960gestureRIGHT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(apds.readGesture()==DIR_RIGHT)",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Gesto alejarse",
+			"APDS9960gestureFAR",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(apds.readGesture()==DIR_FAR)",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Gesto acercarse",
+			"APDS9960gestureNEAR",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(apds.readGesture()==DIR_NEAR)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Nivel de luz ambiente",
+			"APDS9960ambientlightread",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"ambient_light",
+				"loop":"apds.readAmbientLight(ambient_light);\n"
+			}
+		],
+		[
+			"R",
+			"Nivel de luz roja",
+			"APDS9960redlightread",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"red_light",
+				"loop":"apds.readRedLight(red_light);\n"
+			}
+		],
+		[
+			"R",
+			"Nivel de luz verde",
+			"APDS9960greenlightread",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"green_light",
+				"loop":"apds.readGreenLight(green_light);\n"
+			}
+		],
+		[
+			"R",
+			"Nivel de luz azul",
+			"APDS9960Bluelightread",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"blue_light",
+				"loop":"apds.readBlueLight(blue_light);\n"
+			}
+		]
+		
+	],
+	"menus": {
+		"gain_gesture":["GGAIN_1X","GGAIN_2X","GGAIN_4X","GGAIN_8X"],
+		"gain_abl":["AGAIN_1X","AGAIN_4X","AGAIN_16X","AGAIN_64X"]
+
+	},
+	"values":{
+		"GGAIN_1X":0,"GGAIN_2X":1,"GGAIN_4X":2,"GGAIN_8X":3,	
+		"AGAIN_1X":0,"AGAIN_4X":1,"AGAIN_16X":2,"AGAIN_64X":3
+	},
+	"translators":{
+	 "en":{
+	       
+	 }		
+		
+	}
+}
