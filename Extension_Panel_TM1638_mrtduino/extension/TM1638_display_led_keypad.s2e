@@ -1,0 +1,191 @@
+{
+    "extensionName": "TM1638 matriz de 8 digitos de 7 segmentos, 8 leds y 8 botones",
+	"description": "Extensión para trabajr con este tablero multifunción",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":10,
+	"extensionPort": 0,
+	"firmware":"1.0",
+	"javascriptURL":"",
+	"blockSpecs": [
+		 ["w",
+			"Inicialización TM1638.DATA %d.puertosall CLK %d.puertosall STROBE %d.puertosall y brillo %n",
+			"TM1638init",
+			"Port9",
+			"Port10",
+			"Port11",
+			"7",
+			{
+				"setup":"",
+				"inc":"#include \"TM1638.h\"\n",
+				"def":"TM1638 module({0},{1},{2},true,{3});\nbyte values[8];",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		["w",
+			"Borrar display",
+			"TM1638clear,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.clearDisplay();\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Borrar el digito en pos %d.posicion ",
+			"TM1638clearDigit,
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.clearDisplayDigit({0},false);\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Escribir el digito %d.digito en pos %d.posicion con punto %d.punto",
+			"TM1638drawDigit,
+			"0",
+			"0",
+			"NO",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.setDisplayDigit({0},{1},{2});\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Escribir error en el display",
+			"TM1638drawError,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.setDisplayToError();\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Escribir el número decimal %n.Byte de puntos %n",
+			"TM1638drawDecimalNumber,
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.setDisplayToDecNumber({0},{1},false);\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Escribir el número decimal con signo %n.Byte de puntos %n",
+			"TM1638drawFloatNumber,
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.setDisplayToSignedDecNumber({0},{1},false);\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Escribir el texto %s.Byte de puntos %n",
+			"TM1638drawString,
+			"Hello",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.setDisplayToString({0},{1});\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Configurar segmento(byte)con valor %n en pos %d.posicion ",
+			"TM1638drawValues,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"values[{1}]={0};\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Escribir valores de los segmentos",
+			"TM1638drawValues,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.setDisplay(values);\n",
+				"loop":""
+			}
+		],
+		
+		
+		["w",
+			"Led en la posición %d.posicion. Estado %d.statuscolor",
+			"TM1638drawLed,
+			"0",
+			"VERDE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.setLED({1},{0});\n",
+				"loop":""
+			}
+		],
+		["w",
+			"Escribir word de leds %n",
+			"TM1638drawAllLeds,
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.setLEDs({0});\n",
+				"loop":""
+			}
+		],
+		["R",
+			"Leer botones pulsados(byte)",
+			"TM1638readbuttons,
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"module.getButtons()",
+				"loop":""
+			}
+		]		
+    ],
+	"menus": {
+		"posicion": ["0","1","2","3","4","5","6","7"],
+		"punto":["SI","NO"], 
+		"statuscolor": ["VERDE","ROJO","APAGADO"],
+		"digito": ["0","1","2","3","4","5","6","7","8","9"],
+		"puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+	},
+	"values":{
+		"SI":1, "NO":0,
+		"VERDE":2,"ROJO":1,"APAGADO":0,
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+	},
+	"translators":{
+	}
+}
