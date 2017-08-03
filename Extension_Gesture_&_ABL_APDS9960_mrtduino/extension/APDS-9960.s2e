@@ -27,9 +27,9 @@
 			{
 				"setup":"",
 				"inc":"",
-				"def":"unsigned int gesto=0;",
+				"def":"unsigned int gesto=0;\n",
 				"work":"apds.enableGestureSensor(false);\n",
-				"loop":"gesto=apds.readGesture();\n"
+				"loop":""
 			}
 		
 		],
@@ -107,6 +107,18 @@
 				"inc":"",
 				"def":"",
 				"work":"apds.isGestureAvailable()",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Almacenar gesto",
+			"APDS9960ReadSavegesture",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"gesto=apds.readGesture();\n",
 				"loop":""
 			}
 		],
