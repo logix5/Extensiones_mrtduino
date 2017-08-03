@@ -27,9 +27,9 @@
 			{
 				"setup":"",
 				"inc":"",
-				"def":"",
+				"def":"unsigned int gesto=0;",
 				"work":"apds.enableGestureSensor(false);\n",
-				"loop":""
+				"loop":"gesto=apds.readGesture();\n"
 			}
 		
 		],
@@ -42,7 +42,7 @@
 				"inc":"",
 				"def":"uint16_t ambient_light=0;\nuint16_t red_light=0;\nuint16_t green_light=0;\nuint16_t blue_light=0;\n",
 				"work":"apds.enableLightSensor(false);\n",
-				"loop":""
+				"loop":"apds.readBlueLight(blue_light);\napds.readGreenLight(green_light);\napds.readRedLight(red_light);\napds.readAmbientLight(ambient_light);\n"
 			}
 		
 		],
@@ -118,7 +118,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"apds.readGesture()",
+				"work":"gesto",
 				"loop":""
 			}
 		],
@@ -130,7 +130,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"(apds.readGesture()==DIR_UP)",
+				"work":"(gesto==DIR_UP)",
 				"loop":""
 			}
 		],
@@ -142,7 +142,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"(apds.readGesture()==DIR_DOWN)",
+				"work":"(gesto==DIR_DOWN)",
 				"loop":""
 			}
 		],
@@ -154,7 +154,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"(apds.readGesture()==DIR_LEFT)",
+				"work":"(gesto==DIR_LEFT)",
 				"loop":""
 			}
 		],
@@ -166,7 +166,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"(apds.readGesture()==DIR_RIGHT)",
+				"work":"(gesto==DIR_RIGHT)",
 				"loop":""
 			}
 		],
@@ -178,7 +178,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"(apds.readGesture()==DIR_FAR)",
+				"work":"(gesto==DIR_FAR)",
 				"loop":""
 			}
 		],
@@ -190,7 +190,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"(apds.readGesture()==DIR_NEAR)",
+				"work":"(gesto==DIR_NEAR)",
 				"loop":""
 			}
 		],
@@ -203,7 +203,7 @@
 				"inc":"",
 				"def":"",
 				"work":"ambient_light",
-				"loop":"apds.readAmbientLight(ambient_light);\n"
+				"loop":""
 			}
 		],
 		[
@@ -215,7 +215,7 @@
 				"inc":"",
 				"def":"",
 				"work":"red_light",
-				"loop":"apds.readRedLight(red_light);\n"
+				"loop":""
 			}
 		],
 		[
@@ -227,7 +227,7 @@
 				"inc":"",
 				"def":"",
 				"work":"green_light",
-				"loop":"apds.readGreenLight(green_light);\n"
+				"loop":""
 			}
 		],
 		[
@@ -239,7 +239,7 @@
 				"inc":"",
 				"def":"",
 				"work":"blue_light",
-				"loop":"apds.readBlueLight(blue_light);\n"
+				"loop":""
 			}
 		]
 		
