@@ -1,0 +1,206 @@
+{	"extensionName": "GPS",
+	"description": "Extensión para usar el GPS. Usaremos la librería TinyGPS",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":15,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+    "blockSpecs": [
+        
+		[
+			"w",
+			"Inicialización GPS %d.baudios Rx pin %d.puertosall Tx pin %d.puertosall",
+			"GPSBegin",
+			"9600",
+			"Port7",
+			"Port8",
+			{
+				"setup":"ss.begin({0});\n",
+				"inc":"#include \"TinyGPS.h\"\n#include \"SoftwareSerial.h\"\n",
+				"def":"SoftwareSerial ss=SoftwareSerial({1},{2});\nTinyGPS gps;\nfloat lat, lon,speed,course;\nunsigned long fix_age;\nint year;\nbyte month, day, hour, minutes, second, hundredths,nsat;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+		  "B",
+			"Datos GPS disponibles",
+			"GPSavailable",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"ss.available()",
+				"loop":""
+			}
+		],   
+		[
+		  "B",
+			"Mensaje GPS recibido",
+			"GPSavailable",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"gps.encode(ss.read())",
+				"loop":""
+			}
+		],   
+		[
+			"w",
+			"Leer y almacenar datos GPS recibidos",
+			"GPSsaveValues",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"gps.f_get_position(&lat, &lon, &fix_age);\ngps.crack_datetime(&year, &month, &day,&hour, &minutes, &second, &hundredths, &fix_age);\nspeed =gps.f_speed_kmph();\ncourse = gps.course();\nnsat=gps.satellites();\n",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Latitud",
+			"GPSLatitud",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lat",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Longitud",
+			"GPSLongitud",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lon",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Curso en grados",
+			"GPSCourse",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"course",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Velocidad en Km/h",
+			"GPSspeed",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"speed",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Número de Satelites",
+			"GPSnumberSatellites",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"nsat",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Año",
+			"GPSYear",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"year",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Mes",
+			"GPSMonth",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"month",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Día",
+			"GPSDay",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"day",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Horas",
+			"GPSHour",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"hour",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Minutos",
+			"GPSMinutes",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"minutes",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Segundos",
+			"GPSSeconds",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"second",
+				"loop":""
+			}
+		]
+   ],
+    "menus": {
+	    "puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"],
+		"baudios":["1200","2400","4800","9600","19200","38400","57600","115200"]
+    },
+    "values": {
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+    },
+    "translators": {
+        
+    }
+}
