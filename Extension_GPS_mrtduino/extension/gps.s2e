@@ -39,7 +39,7 @@
 		[
 		  "B",
 			"Mensaje GPS recibido",
-			"GPSavailable",
+			"GPSmessagereceived",
 			{
 				"setup":"",
 				"inc":"",
