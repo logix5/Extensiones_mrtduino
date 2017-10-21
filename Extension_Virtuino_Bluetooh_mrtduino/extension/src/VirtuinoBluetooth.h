@@ -26,7 +26,7 @@
 
 #include "Arduino.h"
 
-#define BLUETOOTH_USE_SOFTWARE_SERIAL  // disable this command if you want to use hardware serial
+//#define BLUETOOTH_USE_SOFTWARE_SERIAL  // disable this command if you want to use hardware serial
 
 #ifdef BLUETOOTH_USE_SOFTWARE_SERIAL
 #include "SoftwareSerial.h"
