@@ -1,0 +1,62 @@
+{	"extensionName": "DS18B20 one wire",
+	"description": "Extensión DS18B20 para leer usando el protocolo one-wire el sensor de temperatura. Este si s compra en formato sonda mide 
+	la temperatura de un líquido",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":15,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+    "blockSpecs": [
+		[
+			"w",
+			"Inicialización sensor de Temp DS18B20 en puerto %d.puertosDS18B20",
+			"DS18B20begin",
+			"Port1",
+			{
+				"setup":"sensor.begin();\n",
+				"inc":"#include \"OneWire.h\"\n#include \"DallasTemperature.h\"\n",
+				"def":"OneWire oneWireBus({0});\nDallasTemperature sensor(&oneWireBus);\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Ordenar leer la temperatura sensores DS18B20 ",
+			"DS18B20temprequest",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"sensor.requestTemperatures();\n",
+				"loop":""
+			}
+		],	
+        [
+			"R",
+			"Leer temperatura de sensor %n",
+			"DS1302sec",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"sensor.getTempCByIndex({0})",
+				"loop":""
+			}
+		]
+       
+   ],
+    "menus": {
+		"puertosDS18B20": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+    },
+    "values": {
+        "Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1     
+    },
+    "translators": {
+        
+    }
+}
