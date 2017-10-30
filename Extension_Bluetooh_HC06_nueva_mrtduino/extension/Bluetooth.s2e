@@ -1,0 +1,172 @@
+{	"extensionName": "Bluetooth",
+	"description": "Extensión para el bluetooth",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":21,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+    "blockSpecs": [
+        
+		[
+			"w",
+			"Inicialización Bluetooth %d.baudios.",
+			"BTbegin",
+			"9600",
+			{
+				"setup":"Serial1.begin({0});\n",
+				"inc":"",
+				"def":"int long_rx;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Inicialización Bluetooth %d.baudios puertos Rx pin %d.portbt Tx pin %d.portbt ",
+			"BTbeginSoftware",
+			"9600",
+			"Port7",
+			"Port8",
+			{
+				"setup":"bluetoothSerial.begin({0});\n",
+				"inc":"#include \"SoftwareSerial.h\"\n",
+				"def":"SoftwareSerial bluetoothSerial=SoftwareSerial({1},{2});\nint long_rx;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Enviar %s por Bluetooth sin salto de línea.",
+			"BTsendvalues",
+			"Texto a enviar",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.print({0});",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Enviar %s por Bluetooth sin salto de línea.SoftwareSerial",
+			"BTsendvaluesSoftwareserial",
+			"Texto a enviar",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bluetoothSerial.print({0});",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Enviar %s por Bluetooth con salto de línea",
+			"BTsendvaluesln",
+			"Texto a enviar",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.println({0});",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Enviar %s por Bluetooth con salto de línea.SoftwareSerial",
+			"BTsendvalueslnSoftwareserial",
+			"Texto a enviar",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bluetoothSerial.println({0});",
+				"loop":""
+			}
+		],
+		      
+		[
+		  "B",
+			"Recibido byte del BT",
+			"BTbytereceived",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"((long_rx=Serial1.available())>0)",
+				"loop":""
+			}
+		],
+		[
+		  "B",
+			"Recibido byte del BT.SoftwareSerial",
+			"BTbytereceivedsoftwareserial",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"((long_rx=bluetoothSerial.available())>0)",
+				"loop":""
+			}
+		],
+		
+		[
+		  "R",
+			"Leer byte del BT",
+			"BTbytereaded",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.read()",
+				"loop":""
+			}
+		],
+		
+		[
+		  "R",
+			"Leer byte del BT.SoftwareSerial",
+			"BTbytereadedsoftwareserial",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bluetoothSerial.read()",
+				"loop":""
+			}
+		],
+		
+		[
+		  "R",
+			"Longitud recibida",
+			"BTbytelenghtreaded",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"long_rx",
+				"loop":""
+			}
+		]
+       
+   ],
+    "menus": {
+	    "portbt": ["Port2", "Port3", "Port4", "Port10","Port11"],
+		"baudios":["1200","2400","4800","9600","19200","38400","57600","115200"]
+    },
+    "values": {
+              "Port2": 15, "Port3": 16, "Port4": 14, "Port10": 9, "Port11": 11
+    },
+    "translators": {
+        
+    }
+}
