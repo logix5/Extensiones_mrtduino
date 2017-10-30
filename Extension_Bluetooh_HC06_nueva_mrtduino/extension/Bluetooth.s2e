@@ -28,8 +28,8 @@
 			"Inicialización Bluetooth %d.baudios puertos Rx pin %d.portbt Tx pin %d.portbt ",
 			"BTbeginSoftware",
 			"9600",
-			"Port7",
-			"Port8",
+			"Port10",
+			"Port11",
 			{
 				"setup":"bluetoothSerial.begin({0});\n",
 				"inc":"#include \"SoftwareSerial.h\"\n",
