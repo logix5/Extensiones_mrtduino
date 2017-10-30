@@ -11,13 +11,15 @@
         
 		[
 			"w",
-			"Inicialización Virtuino Bluetooth %d.baudios",
+			"Inicialización Virtuino Bluetooth %d.baudios Rx pin %d.portbt Tx pin %d.portbt ",
 			"BTVirtuinobegin",
 			"9600",
+			"Port10",
+			"Port11",
 			{
-				"setup":"",
-				"inc":"#include \"VirtuinoBluetooth.h\"\n",
-				"def":"VirtuinoBluetooth virtuino(Serial1,{0});\n",
+				"setup":"bluetoothSerial.begin({0});\n",
+				"inc":"#include \"VirtuinoBluetooth.h\"\n#include \"SoftwareSerial.h\"\n",
+				"def":"SoftwareSerial bluetoothSerial =SoftwareSerial({1},{2});\nVirtuinoBluetooth virtuino(bluetoothSerial);\n",
 				"work":"",
 				"loop":""
 			}
