@@ -1,0 +1,148 @@
+{	"extensionName": "VirtuinoBluetooth",
+	"description": "Extensión para usar bluetooth con Virtuino. Hay que bajarse la aplicación y usar la librería que adjuntamos",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":15,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+    "blockSpecs": [
+        
+		[
+			"w",
+			"Inicialización Virtuino Bluetooth %d.baudios",
+			"BTVirtuinobegin",
+			"9600",
+			{
+				"setup":"",
+				"inc":"#include \"VirtuinoBluetooth.h\"\n",
+				"def":"VirtuinoBluetooth virtuino(Serial1,{0});\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Habilitar logs por puerto serie %d.logs",
+			"BTVirtuinolog",
+			"NO",
+			{
+				"setup":"virtuino.DEBUG2={0};\n",
+				"inc":"",
+				"def":"",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Configurar pin para gestionarlo desde virtuino %d.puertosall %d.type",
+			"BTVirtuinoPinDefine",
+			"Port1",
+			"INPUT",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"virtuino.vPinMode({0},{1});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Virtuino delay(mseg) %n",
+			"BTVirtuinodelay",
+			"1000",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"virtuino.vDelay({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Ejecutar Virtuino",
+			"BTVirtuinoRun",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"virtuino.run();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir en el pin virtual %d.pines el valor %d",
+			"BTVirtuinosendvalues",
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"virtuino.vMemoryWrite({0},{1});\n",
+				"loop":""
+			}
+		],
+		[
+		  "R",
+			"Leer del pin virtual %d.pines",
+			"BTVirtuinoreceived",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"virtuino.vMemoryRead({0})",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir en el pin virtual digital %d.pines el valor %d.digital",
+			"BTVirtuinoDigitalsendvalues",
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"virtuino.vDigitalMemoryWrite({0},{1});\n",
+				"loop":""
+			}
+		],
+		[
+		  "B",
+			"Leer del pin virtual digital %d.pines",
+			"BTVirtuinoDigitalreceived",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"virtuino.vDigitalMemoryRead({0})",
+				"loop":""
+			}
+		]     
+   ],
+    "menus": {
+	    "type":["OUTPUT","INPUT"],
+	    "pines":["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+		"digital": ["0","1"],
+		"logs": ["NO","SI"],
+        "puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"],
+		"baudios":["1200","2400","4800","9600","19200","38400","57600","115200"]
+    },
+    "values": {
+	"OUTPUT":1,"INPUT":0,
+	"NO":0, "SI":1,
+	"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+    },
+    "translators": {
+        
+    }
+}
