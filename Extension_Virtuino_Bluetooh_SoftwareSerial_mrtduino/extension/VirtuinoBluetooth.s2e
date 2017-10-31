@@ -1,4 +1,4 @@
-{	"extensionName": "VirtuinoBluetooth",
+{	"extensionName": "VirtuinoBluetooth-SoftwareSerial",
 	"description": "Extensión para usar bluetooth con Virtuino. Hay que bajarse la aplicación y usar la librería que adjuntamos",
 	"version": "1.0",
 	"author": "Oscar Ferruz (oferruz@logix5.com)",
@@ -12,7 +12,7 @@
 		[
 			"w",
 			"Inicialización Virtuino Bluetooth %d.baudios Rx pin %d.portbt Tx pin %d.portbt ",
-			"BTVirtuinobegin",
+			"BTVirtuinobeginSS",
 			"9600",
 			"Port10",
 			"Port11",
@@ -27,7 +27,7 @@
 		[
 			"w",
 			"Habilitar logs por puerto serie %d.logs",
-			"BTVirtuinolog",
+			"BTVirtuinologSS",
 			"NO",
 			{
 				"setup":"virtuino.DEBUG2={0};\n",
@@ -40,7 +40,7 @@
 		[
 			"w",
 			"Configurar pin para gestionarlo desde virtuino %d.puertosall %d.type",
-			"BTVirtuinoPinDefine",
+			"BTVirtuinoPinDefineSS",
 			"Port1",
 			"INPUT",
 			{
@@ -54,7 +54,7 @@
 		[
 			"w",
 			"Virtuino delay(mseg) %n",
-			"BTVirtuinodelay",
+			"BTVirtuinodelaySS",
 			"1000",
 			{
 				"setup":"",
@@ -67,7 +67,7 @@
 		[
 			"w",
 			"Ejecutar Virtuino",
-			"BTVirtuinoRun",
+			"BTVirtuinoRunSS",
 			{
 				"setup":"",
 				"inc":"",
@@ -79,7 +79,7 @@
 		[
 			"w",
 			"Escribir en el pin virtual %d.pines el valor %d",
-			"BTVirtuinosendvalues",
+			"BTVirtuinosendvaluesSS",
 			"0",
 			"0",
 			{
@@ -93,7 +93,7 @@
 		[
 		  "R",
 			"Leer del pin virtual %d.pines",
-			"BTVirtuinoreceived",
+			"BTVirtuinoreceivedSS",
 			"0",
 			{
 				"setup":"",
@@ -106,7 +106,7 @@
 		[
 			"w",
 			"Escribir en el pin virtual digital %d.pines el valor %d.digital",
-			"BTVirtuinoDigitalsendvalues",
+			"BTVirtuinoDigitalsendvaluesSS",
 			"0",
 			"0",
 			{
@@ -120,7 +120,7 @@
 		[
 		  "B",
 			"Leer del pin virtual digital %d.pines",
-			"BTVirtuinoDigitalreceived",
+			"BTVirtuinoDigitalreceivedSS",
 			"0",
 			{
 				"setup":"",
