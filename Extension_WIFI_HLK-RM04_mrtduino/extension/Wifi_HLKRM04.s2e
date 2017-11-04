@@ -10,19 +10,6 @@
 	"blockSpecs": [
 		[
 			"w",
-			"Inicialización Wifi ESP8266 puerto serie.Baudios %d.baudios",
-			"WifiESP8266begin",
-			"115200",
-			{
-				"setup":"Serial1.begin({0});\n",
-				"inc":"",
-				"def":"",
-				"work":"",
-				"loop":""
-			}
-		],
-		[
-			"w",
 			"Inicialización Wifi HLK-RM04 %d.baudios",
 			"WifiHLKbegin",
 			"115200",
@@ -31,94 +18,6 @@
 				"inc":"",
 				"def":"",
 				"work":"",
-				"loop":""
-			}
-		],
-		[
-			"w",
-			"Inicialización Thingspeak API write %s",
-			"TSWifiESP8266begin",
-			"7MWRTNYIWQ3T3E0X",
-			{
-				"setup":"",
-				"inc":"#include \"IOT_ts.h\"\n",
-				"def":"Iot_thinkspeak iot({0});\n",
-				"work":"",
-				"loop":""
-			}
-		],
-		[
-			"w",
-			"Reset ESP8266. Tiempo espera %n Logs %d.trazas",
-			"ResetWifiESP8266begin",
-			"1000",
-			"SI",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"iot.Reset_ESP8266({0},{1});\n",
-				"loop":""
-			}
-		],
-		[
-			"w",
-			"Conf. baudios del ESP8266 %d.baudios.Tiempo espera %n Logs %d.trazas",
-			"ConfigBaudWifiESP8266begin",
-			"115200",
-			"1000",
-			"SI",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"iot.Baudios_ESP8266({0},{1},{2});\n",
-				"loop":""
-			}
-		],
-		[
-			"w",
-			"Conf. modo del ESP8266 %n.Tiempo espera %n Logs %d.trazas",
-			"ConfigModeWifiESP8266begin",
-			"1",
-			"1000",
-			"SI",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"iot.Mode_ESP8266({0},{1},{2});\n",
-				"loop":""
-			}
-		],
-		[
-			"w",
-			"Conf. ssid %s y password %s de red a conectar.Tiempo espera %n Logs %d.trazas",
-			"ConfigssidWifiESP8266begin",
-			"RED_WIFI",
-			"password",
-			"5000",
-			"SI",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"iot.Credentials_ESP8266({0},{1},{2},{3});\n",
-				"loop":""
-			}
-		],
-		[
-			"w",
-			"Escribe en Thinkspeak campo %n valor %d. Logs %d.trazas",
-			"WriteIOTThinkspeak",
-			"1",
-			"2.0",
-			"SI",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"iot.thingSpeakWrite({0},{1},{2});\n",
 				"loop":""
 			}
 		],

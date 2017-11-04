@@ -23,14 +23,39 @@
 		],
 		[
 			"w",
+			"Inicialización IOT",
+			"IOTWifiESP8266begin",
+			{
+				"setup":"",
+				"inc":"#include \"IOT_ts.h\"\n",
+				"def":"Iot_device iot;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
 			"Inicialización Thingspeak API write %s",
 			"TSWifiESP8266begin",
 			"7MWRTNYIWQ3T3E0X",
 			{
 				"setup":"",
 				"inc":"#include \"IOT_ts.h\"\n",
-				"def":"Iot_device iot({0});\n",
-				"work":"",
+				"def":"",
+				"work":"iot.Iot_thinkspeak({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Inicialización Ifttt API write %s",
+			"IftttWifiESP8266begin",
+			"7MWRTNYIWQ3T3E0X",
+			{
+				"setup":"",
+				"inc":"#include \"IOT_ts.h\"\n",
+				"def":"",
+				"work":"iot.Iot_ifttt({0});\n",
 				"loop":""
 			}
 		],
@@ -106,6 +131,23 @@
 				"inc":"",
 				"def":"",
 				"work":"iot.thingSpeakWrite({0},{1},{2});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribe en Ifttt evento %s valor1 %d valor2 %d valor3 %d.Logs %d.trazas",
+			"WriteIOTIfttt",
+			"evento",
+			"0",
+			"0",
+			"0",
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"iot.iftttWrite({0},{1},{2},{3},{4});\n",
 				"loop":""
 			}
 		],
