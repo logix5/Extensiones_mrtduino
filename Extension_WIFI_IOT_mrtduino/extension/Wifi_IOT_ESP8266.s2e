@@ -1,0 +1,203 @@
+{	"extensionName": "Módulo WifiESP8266 para IOT",
+	"description": "Extensión para realizar transmisiones y recepciones por wifi para IOT.",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":14,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización Wifi ESP8266 puerto serie.Baudios %d.baudios",
+			"WifiESP8266begin",
+			"115200",
+			{
+				"setup":"Serial1.begin({0});\n",
+				"inc":"",
+				"def":"",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Inicialización Thingspeak API write %s",
+			"TSWifiESP8266begin",
+			"7MWRTNYIWQ3T3E0X",
+			{
+				"setup":"",
+				"inc":"#include \"IOT_ts.h\"\n",
+				"def":"Iot_device iot({0});\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Reset ESP8266. Tiempo espera %n Logs %d.trazas",
+			"ResetWifiESP8266begin",
+			"1000",
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"iot.Reset_ESP8266({0},{1});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Conf. baudios del ESP8266 %d.baudios.Tiempo espera %n Logs %d.trazas",
+			"ConfigBaudWifiESP8266begin",
+			"115200",
+			"1000",
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"iot.Baudios_ESP8266({0},{1},{2});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Conf. modo del ESP8266 %n.Tiempo espera %n Logs %d.trazas",
+			"ConfigModeWifiESP8266begin",
+			"1",
+			"1000",
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"iot.Mode_ESP8266({0},{1},{2});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Conf. ssid %s y password %s de red a conectar.Tiempo espera %n Logs %d.trazas",
+			"ConfigssidWifiESP8266begin",
+			"RED_WIFI",
+			"password",
+			"5000",
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"iot.Credentials_ESP8266({0},{1},{2},{3});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribe en Thinkspeak campo %n valor %d. Logs %d.trazas",
+			"WriteIOTThinkspeak",
+			"1",
+			"2.0",
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"iot.thingSpeakWrite({0},{1},{2});\n",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Hay datos recibidos por Wifi",
+			"WifiReadMessage",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.available()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Leer Dato recibido Wifi",
+			"RXcharReaded",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.read()",
+				"loop":""
+			}
+		],
+
+		[
+			"w",
+			"Escribir en el puerto serie el dato recibido Wifi",
+			"SendcharReadedtoSerial",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial.write(Serial1.read());\n",
+				"loop":""
+			}
+		],	
+		[
+			"w",
+			"Enviar por WIFI %s sin salto de linea",
+			"WifiSendMessage",
+			"Hi wifi",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.print({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Enviar por WIFI %s con salto de linea",
+			"WifiSendlnMessage",
+			"Hi wifi ln",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.println({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Enviar el comando AT %s ",
+			"WifiSendATMessage",
+			"AT ",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"Serial1.write({0});\nSerial1.write(\"\\r\\n\");\n",
+				"loop":""
+			}
+		]
+						
+		
+	],
+	"menus": {
+	    "trazas":["SI","NO"],
+		"baudios":["1200","2400","4800","9600","19200","38400","57600","115200"]
+		
+	},
+	"values":{
+		"SI":1,"NO":0
+		
+	},
+	"translators":{
+		
+	}
+}
