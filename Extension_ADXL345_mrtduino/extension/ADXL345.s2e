@@ -1,0 +1,191 @@
+{	"extensionName": "ADXL345 I2C",
+	"description": "Extensión para usar el acelerometro ADXL345 en el software MRTduino. Previamente debe instalarse las librerías 
+	Wire.h, Adafruit_Sensor.h y Adfruit_ADXL345_U.h	o meterlas en el src para que coja las fuentes al compilar",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":13,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización ADXL345 I2C",
+			"ADXL345begin",
+			{
+				"setup":"accel.begin();\n",
+				"inc":"#include \"Wire.h\"\n#include \"Adafruit_Sensor.h\"\n#include \"Adafruit_ADXL345_U.h\"\n",
+				"def":"Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);\nsensors_event_t event;\nsensor_t sensor;\n",
+				"work":"",
+				"loop":""
+			}
+		],			
+		[
+			"w",
+			"Configurar rango de amplitud ADXL345 %d.rangeG",
+			"ADXL345configG",
+			"16g",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"accel.setRange((range_t){0});\n",
+				"loop":""
+			}
+		],		
+		[
+			"B",
+			"Leer el rango de amplitud del ADXL345",
+			"ADXL345readG",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"accel.getRange()",
+				"loop":""
+			}
+		],					
+		[
+			"w",
+			"Leer y almacenar los valores leidos por el acelerometro",
+			"ADXL345GetValues",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"accel.getEvent(&event);\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Leer y almacenar los datos internos del acelerometro",
+			"ADXL345GetinternalValues",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"accel.getSensor(&sensor);\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Aceleración en el eje X",
+			"ADXL345GetValueaX",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(event.acceleration.x)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Aceleración en el eje Y",
+			"ADXL345GetValueaY",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(event.acceleration.y)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Aceleración en el eje Z",
+			"ADXL345GetValueaZ",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(event.acceleration.z)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Nombre",
+			"ADXL345GetName",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(sensor.name)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Versión del Sensor",
+			"ADXL345GetVersion",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(sensor.version)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"ID interno del Sensor",
+			"ADXL345GetID",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(sensor.sensor_id)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Valor máximo de medida en m2/seg",
+			"ADXL345GetMax",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(sensor.max_value)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Valor mínimo de medida en m2/seg",
+			"ADXL345GetMin",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(sensor.min_value)",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Resolución del sensor en m2/seg",
+			"ADXL345GetResolution",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(sensor.resolution)",
+				"loop":""
+			}
+		]
+	 ],
+	"menus": {
+		"rangeG": ["2g","4g","8g","16g"]
+	},
+	"values":{
+		"2g":0, "4g":1, "8g":2, "16g":3
+	},
+	"translators":{
+		
+	}
+}
