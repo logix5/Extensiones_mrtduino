@@ -110,19 +110,7 @@
 		"def":"",
 		"work":"tone({0},{1},{2});\ndelay({2});\n",
 		"loop":""}],
-		
-		["w",
-		"Enviar al servo en el puerto %d.puertospwm al ángulo de %d.servovalue",
-		"runServoArduino",
-		"Port9", 
-		90,
-		{"encode":"{d0}{d1}",
-		"setup":"servo_{0}.attach({0});\n",
-		"inc":"#include <Servo.h>\n",
-		"def":"Servo servo_{0};\n",
-		"work":"servo_{0}.write({1});\n",
-		"loop":""}],
-			
+				
 		["R",
 		"Leer sensor ultrasonido con trig pin %d.puertosall y echo pin en %d.puertosall",
 		"getUltrasonic",
