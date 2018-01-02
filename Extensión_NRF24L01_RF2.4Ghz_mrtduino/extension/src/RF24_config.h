@@ -87,7 +87,7 @@
       #define _SPI spi
       
 	  #else	    
-		#include <SPI.h>
+		#include "SPI.h"
 		#define _SPI SPI
 	  #endif
 #else
@@ -102,7 +102,7 @@
 		#include <SPI_UART.h>
 		#define _SPI uspi
    #else
-     #include <SPI.h>
+     #include "SPI.h"
      #define _SPI SPI
    #endif
  #elif !defined(__arm__) && !defined (__ARDUINO_X86__)
