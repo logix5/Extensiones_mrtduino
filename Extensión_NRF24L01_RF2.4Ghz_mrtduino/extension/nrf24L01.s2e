@@ -19,7 +19,7 @@
 			{
 				"setup":"radio.begin();\n",
 				"inc":"#include \"nRF24L01.h\"\n#include \"RF24.h\"\n#include \"RF24_config.h\"\n#include \"SPI.h\"\n",
-				"def":"RF24 radio({0},{1});\nconst uint64_t pipe={2}LL;\n",
+				"def":"RF24 radio({0},{1});\nconst uint64_t pipe={2}LL;\nchar data[16]=\"Hola mundo\";\n",
 				"work":"",
 				"loop":""
 			}
@@ -50,17 +50,17 @@
 		],
 		[
 			"w",
-			"Enviar por RF una variable %d",
+			"Enviar por RF ",
 			"RFWrite",
-			"variable",
 			{
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"radio.write(&{0}, sizeof({0}));\n",
+				"work":"radio.write(data, 16);\n",
 				"loop":""
 			}
 		],
+		
 		[
 			"w",
 			"Arrancar el proceso de escucha RF",
@@ -86,6 +86,68 @@
 			}
 		],
 		[
+			"w",
+			"Configurar Canal %d",
+			"RFSetChannel",
+			"4",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"radio.setChannel({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Leer Canal ",
+			"RFReadChannel",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"radio.getChannel()",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Configurar DataRate %d ",
+			"RFSetDateRate",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"radio.setDataRate((rf24_datarate_e){0});\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Leer DataRate ",
+			"RFReadDateRate",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"radio.getDataRate()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Leer CRC",
+			"RFReadCRC",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"radio.getCRCLength()",
+				"loop":""
+			}
+		],
+		[
 			"B",
 			"Dato RF disponible",
 			"RFavailable",
@@ -101,12 +163,11 @@
 			"w",
 			"Almacenar en la variable %d el dato leido por RF",
 			"RFRead",
-			"variable",
 			{
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"radio.read(&{0}, sizeof({0}));\n",
+				"work":"radio.read(data, 16);\nSerial.println(data);\n",
 				"loop":""
 			}
 		]
