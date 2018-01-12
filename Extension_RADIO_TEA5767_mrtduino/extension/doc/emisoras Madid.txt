@@ -1,0 +1,114 @@
+Emisoras de radio en Madrid
+
+FM,MHz	Radio	Transmisor
+  87.50	  Dynamis Radio  	Alcorcón, Polígono Urtinsa
+  87.60	  Onda Latina  	Madrid Centro
+  87.75	  Radio Amistad  	San Blas
+  87.90	  Espy FM  	Madrid Sur
+  88.00	  Gozadera FM  	Alcorcón
+  88.00	  Cadena Ibérica  	Polígono de Vallecas
+  88.20	  RNE Radio Nacional  	Torrespaña
+  88.40	  Radio Ecuatoriana FM  	Madrid Centro
+  88.60	  Emisora Escuela Municipal M21  	Madrid Centro
+  88.80	  La Kariñosa Radio  	Alcorcón
+  89.00	  M80 Radio  	Parque de la Almudena
+  89.30	  Pepe Radio  	Madrid Norte
+  89.40	  Onda Fuenlabrada  	Fuenlabrada, Polígono Niño del Remedio
+  89.50	  Pepe Radio  	Madrid Centro
+  89.60	  SER Madrid Norte  	Alcobendas
+  89.90	  Hit FM  	Madrid Centro
+  90.10	  La Suegra FM  	Alcorcón
+  90.30	  RNE Radio 5 Todo Noticias  	Torrespaña
+  90.50	  Fiesta FM  	Madrid Suroeste
+  90.70	  Radio María España  
+  Radio Vaticano  	Plaza de Castilla
+  91.00	  Europa FM  	Torrespaña
+  91.70	  Cadena Dial  	Torrespaña
+  91.90	  Contigo FM  	Madrid Sur
+  91.90	  Pozuelo Radio  	Pozuelo de Alarcón
+  92.10	  Sonido y Vida  	Opañel
+  92.20	  10 Radio  	Alcobendas
+  92.40	  Radiolé  	Parque de la Almudena
+  92.70	  Babyradio  	Fuenlabrada, Polígono Niño del Remedio
+  92.90	  Radio Internacional  	Madrid
+  93.00	  Radio Solidaria  	Madrid Norte
+  93.20	  RNE Radio 3  	Torrespaña
+  93.50	  Radio Inter  	Móstoles
+  93.70	  Máster FM (Madrid)  	Móstoles
+  93.90	  Los 40 Principales  	Torrespaña
+  94.10	  Espacio 4 FM  	Rivas-Vaciamadrid
+  94.20	  Radio Televisión Cristiana  	Madrid
+  94.40	  SER Madrid Sur  	Alcorcón
+  94.50	  Aire Radio  	Madrid Centro
+  94.60	  Melodía FM  	Plaza de Castilla
+  94.80	  COPE+ Madrid  	Alcorcón
+  95.10	  Radio Intereconomía  	Torrespaña
+  95.40	  Radio Salam  	Madrid Sur
+  95.60	  Área FM  	Madrid Sur
+  95.80	  RNE Radio 3  	Navacerrada, Bola del Mundo
+  96.00	  Loca FM  	Madrid
+  96.20	  Pepe Radio  	Móstoles
+  96.50	  RNE Radio Clásica  	Torrespaña
+  96.70	  Qué! Radio  	Parque de la Almudena
+  96.90	  Radio María España  
+  Radio Vaticano  	Torre Valencia
+  97.00	  Fórmula Hit  	Madrid Centro
+  97.20	  Top Radio  	Torrespaña
+  97.40	  Roca FM  	Madrid Centro
+  97.50	  Radio Centro TV  	Parque de la Almudena
+  98.00	  Onda Cero  	Torrespaña
+  98.20	  MQM Radio Remember  	Alcorcón, Polígono Urtinsa
+  98.40	  Melodía FM  	Pozuelo de Alarcón, Húmera
+  98.40	  Onda Diamante  	Canillejas
+  98.50	  Cadena Ibérica  	Madrid Sur
+  98.80	  RNE Radio Clásica  	Navacerrada, Bola del Mundo
+  99.10	  esRadio  	Torrespaña
+  99.30	  Emanuel Radio  	Madrid Suroeste
+  99.50	  Cadena 100  	Torrespaña
+  99.80	  Radio Sol XXI  	Madrid Centro
+100.00	  10 Radio  	Madrid Centro
+100.00	  Radio ELA  	Madrid Centro
+100.20	  Radio Viva FM  	Madrid Centro
+100.40	  Vaughan Radio  	Círculo de Bellas Artes
+100.70	  MegaStar FM  	Parque de la Almudena
+101.00	  COPE+ Madrid  	Alcorcón, Ventorro del Cano
+101.10	  Da la Palabra Radio  	San Blas
+101.30	  Onda Madrid  	Torrespaña
+101.50	  Radio Mejora Tu Vida  	Madrid Sur
+101.70	  Rock FM  	Getafe
+101.90	  La Kariñosa Radio  	Aluche
+102.00	  Onda Cero  	Coslada
+102.10	  Radio Corazón Tropical  	Madrid Sur
+102.30	  SER Madrid Oeste  	Móstoles
+102.40	  Factory FM  	Madrid Sur
+102.70	  Kiss FM  	Torrespaña
+103.00	  Unika FM  	Villaviciosa de Odón
+103.20	  Capital Radio  	Madrid Centro
+103.50	  Radio Marca  	Plaza de Castilla
+103.70	  Ecuador Stereo  	Madrid Suroeste
+103.90	  Ke Buena  	Alcorcón, Ventorro del Cano
+104.00	  Éxito Radio  	Alcobendas
+104.30	  Máxima FM  	Parque de la Almudena
+104.60	  Melodía FM  	Leganés
+104.70	 A Viva Voz	Alcobendas
+104.90	  RNE Radio Nacional  	Navacerrada, Bola del Mundo
+105.00	 Radio Manuela Independiente	Vallecas
+105.10	  Super Q Radio  	Plaza de Castilla
+105.40	  SER Radio Madrid  	Torrespaña
+105.70	  Radio 4G  	Alcorcón, Ventorro del Cano
+106.00	  Onda Madrid  	Navacerrada, Bola del Mundo
+106.30	  COPE Madrid  	Plaza de Castilla
+106.60	  Éxito Radio  	Torre de Valencia
+106.70	  Radio Almenara  	Tetuán, Ventilla
+107.00	  Libertad FM  	Torre de Valencia
+107.20	  Inka Stereo  	Madrid Suroeste
+107.30	  Onda Merlín Comunitaria  	Villaverde
+107.50	  Radio Complutense  	Universidad Complutense de Madrid
+107.50	  RVK Radio Vallekas  	Vallecas
+107.50	  Radio Enlace  	Hortaleza
+107.60	  Antena CEMU  	Leganés
+107.70	  Radio Las Águilas  	Las Águilas
+107.80	  Olímpika Madrid  	Puerta Bonita
+107.90	  Onda Verde  	Madrid Centro
+107.90	  Radio Carcoma  	Canillejas
+108.00	  Gestiona Radio  	Madrid Centro
