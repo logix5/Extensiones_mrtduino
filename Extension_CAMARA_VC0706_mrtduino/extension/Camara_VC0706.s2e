@@ -1,0 +1,163 @@
+{	"extensionName": "Camara de fotos por el puerto serie VC0706 ",
+	"description": "Extensión para tirar fotos con tres resoluciones y detectar movimiento Se tiene que usar la librerías SoftwareSerial para no usar el puerto serie físico y  
+	la propia de la camara https://github.com/adafruit/Adafruit-VC0706-Serial-Camera-Library. Esto tenemos que verlo a la hora de poder añadirlas directamente en Arduino",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":14,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización de la Cámara. TX en %d.portcamara y RX en %d.portcamara",
+			"Camarabegin",
+			"Port10",
+			"Port11",
+			{
+				"setup":"cam=Adafruit_VC0706(&mySoftwareSerial);\n",
+				"inc":"#include \"SoftwareSerial.h\"\n#include \"Adafruit_VC0706.h\"\n",
+				"def":"SoftwareSerial mySoftwareSerial({0}, {1});\nAdafruit_VC0706 cam;\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Activar la Cámara",
+			"CamaraInit",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.begin();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Resolución de la cámara %d.res",
+			"CamaraResolution",
+			"VC0706_640x480",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.setImageSize({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Resolución de la cámara",
+			"GetCamaraResolution",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(double)cam.getImageSize()",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Tomar foto",
+			"TakePicture",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.takePicture();\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"R",
+			"Tamaño de la foto",
+			"getLenght",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(double)cam.frameLength()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Leer %d bytes de la foto tomada",
+			"Readbytes",
+			"32",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.readPicture(bytesToRead)",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Limpiar buffer de la camara para otra foto",
+			"ResumeCamera",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.resumeVideo();\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Activar la detección de movimiento con la cámara",
+			"ActivateSetMotion",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.setMotionDetect(true);\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Desactivar la detección de movimiento con la cámara",
+			"DeactivateSetMotion",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.setMotionDetect(false);\n",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Movimiento detectado con la cámara",
+			"getLenght",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.motionDetected()",
+				"loop":""
+			}
+		]
+	],
+	"menus": {
+		"res":["VC0706_640x480","VC0706_320x240","VC0706_160x120"],
+		"portcamara": ["Port2", "Port3", "Port4", "Port10","Port11"]
+	},
+	"values":{
+		"VC0706_640x480":0,"VC0706_320x240":17,"VC0706_160x120":34,
+		"Port2": 15, "Port3": 16, "Port4": 14, "Port10": 9, "Port11": 11
+	},
+	"translators":{
+		
+	}
+}

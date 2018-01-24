@@ -167,6 +167,21 @@
 		
 		[
 			"w",
+			"Escribir en el fichero el buffer %s con la longitud %d bytes",
+			"SDFilewritebytes",
+			"buffer"
+			"32",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"dataFile.write({0}, {1});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
 			"Cerrar el fichero",
 			"SDFileclose",
 			{
