@@ -169,7 +169,7 @@
 			"w",
 			"Escribir en el fichero el buffer %s con la longitud %d bytes",
 			"SDFilewritebytes",
-			"buffer"
+			"buffer",
 			"32",
 			{
 				"setup":"",
