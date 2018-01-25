@@ -1,10 +1,10 @@
-{	"extensionName": "Camara de fotos por el puerto serie VC0706 ",
+{	"extensionName": "Camara_VC0706",
 	"description": "Extensión para tirar fotos con tres resoluciones y detectar movimiento Se tiene que usar la librerías SoftwareSerial para no usar el puerto serie físico y  
 	la propia de la camara https://github.com/adafruit/Adafruit-VC0706-Serial-Camera-Library. Esto tenemos que verlo a la hora de poder añadirlas directamente en Arduino",
 	"version": "1.0",
 	"author": "Oscar Ferruz (oferruz@logix5.com)",
 	"homepage": "https://github.com/logix5",
-	"sort":14,
+	"sort":15,
 	"javascriptURL":"",
 	"firmware":"1.0",
   	"extensionPort":0,
@@ -25,18 +25,6 @@
 		],
 		[
 			"w",
-			"Activar la Cámara",
-			"CamaraInit",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"cam.begin();\n",
-				"loop":""
-			}
-		],
-		[
-			"w",
 			"Resolución de la cámara %d.res",
 			"CamaraResolution",
 			"VC0706_640x480",
@@ -45,6 +33,18 @@
 				"inc":"",
 				"def":"",
 				"work":"cam.setImageSize({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Activar la Cámara",
+			"CamaraInit",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.begin();\n",
 				"loop":""
 			}
 		],
@@ -148,6 +148,7 @@
 				"loop":""
 			}
 		]
+		
 	],
 	"menus": {
 		"res":["VC0706_640x480","VC0706_320x240","VC0706_160x120"],
