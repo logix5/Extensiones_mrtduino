@@ -16,9 +16,9 @@
 			"Port10",
 			"Port11",
 			{
-				"setup":"cam=Adafruit_VC0706(&mySoftwareSerial);\n",
+				"setup":"",
 				"inc":"#include \"SoftwareSerial.h\"\n#include \"Adafruit_VC0706.h\"\n",
-				"def":"SoftwareSerial mySoftwareSerial({0}, {1});\nAdafruit_VC0706 cam;\n",
+				"def":"SoftwareSerial mySoftwareSerial({0}, {1});\nAdafruit_VC0706 cam=Adafruit_VC0706(&mySoftwareSerial);\n",
 				"work":"",
 				"loop":""
 			}
@@ -95,7 +95,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"cam.readPicture(bytesToRead)",
+				"work":"cam.readPicture({0})",
 				"loop":""
 			}
 		],

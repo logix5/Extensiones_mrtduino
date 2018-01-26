@@ -18,7 +18,7 @@
 #if ARDUINO >= 100
  #include "Arduino.h"
  #if not defined (_VARIANT_ARDUINO_DUE_X_) && not defined (_VARIANT_ARDUINO_ZERO_)
-  #include <SoftwareSerial.h>
+  #include "SoftwareSerial.h"
  #endif
 #else
  #include "WProgram.h"
