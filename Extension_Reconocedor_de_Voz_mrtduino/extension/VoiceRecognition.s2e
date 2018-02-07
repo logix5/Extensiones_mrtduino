@@ -1,0 +1,89 @@
+{	"extensionName": "VoiceRecognition",
+	"description": "Extensión para el reconocedor de voz",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":20,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+    "blockSpecs": [
+        
+		[
+			"w",
+			"Inicialización Reconocedor de Voz %d.baudios puertos Rx pin %d.portvr Tx pin %d.portvr ",
+			"VRbeginSoftware",
+			"9600",
+			"Port10",
+			"Port11",
+			{
+				"setup":"myVR.begin({0});\n",
+				"inc":"#include \"SoftwareSerial.h\"\n"#include \"VoiceRecognitionV3.h\"\n",
+				"def":"VR myVR({1},{2});\nuint8_t buf[64];\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Borrar los comandos de voz activos",
+			"VRclear",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myVR.clear();",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Cargar comando de voz %d",
+			"VRLoad",
+			"0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myVR.load((uint8_t){0})",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Comando de voz reconocido",
+			"VRrecognize",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"myVR.recognize(buf, 50)",
+				"loop":""
+			}
+		],		
+		[
+		  "R",
+			"Comando de voz",
+			"VRcommand",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"(buf[1])",
+				"loop":""
+			}
+		]
+       
+   ],
+    "menus": {
+	    "portvr": ["Port2", "Port3", "Port4", "Port10","Port11"],
+		"baudios":["1200","2400","4800","9600","19200","38400","57600","115200"]
+    },
+    "values": {
+              "Port2": 15, "Port3": 16, "Port4": 14, "Port10": 9, "Port11": 11
+    },
+    "translators": {
+        
+    }
+}
