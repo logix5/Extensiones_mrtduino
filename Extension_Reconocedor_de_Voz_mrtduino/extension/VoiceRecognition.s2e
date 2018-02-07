@@ -3,28 +3,28 @@
 	"version": "1.0",
 	"author": "Oscar Ferruz (oferruz@logix5.com)",
 	"homepage": "https://github.com/logix5",
-	"sort":20,
+	"sort":19,
 	"javascriptURL":"",
 	"firmware":"1.0",
   	"extensionPort":0,
     "blockSpecs": [
-        
+	
 		[
 			"w",
-			"Inicialización Reconocedor de Voz %d.baudios puertos Rx pin %d.portvr Tx pin %d.portvr ",
-			"VRbeginSoftware",
+			"Inicialización Reconocedor de Voz %d.baudios puertos Rx pin %d.portvr Tx pin %d.portvr",
+			"VRbegin",
 			"9600",
 			"Port10",
 			"Port11",
 			{
 				"setup":"myVR.begin({0});\n",
-				"inc":"#include \"SoftwareSerial.h\"\n"#include \"VoiceRecognitionV3.h\"\n",
+				"inc":"#include \"SoftwareSerial.h\"\n#include \"VoiceRecognitionV3.h\"\n",
 				"def":"VR myVR({1},{2});\nuint8_t buf[64];\n",
 				"work":"",
 				"loop":""
 			}
 		],
-		
+        
 		[
 			"w",
 			"Borrar los comandos de voz activos",
@@ -33,7 +33,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"myVR.clear();",
+				"work":"myVR.clear();\n",
 				"loop":""
 			}
 		],
@@ -74,7 +74,6 @@
 				"loop":""
 			}
 		]
-       
    ],
     "menus": {
 	    "portvr": ["Port2", "Port3", "Port4", "Port10","Port11"],
