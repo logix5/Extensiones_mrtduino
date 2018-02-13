@@ -81,7 +81,6 @@ bool Iot_device::iftttWrite(String event,float value1,float value2, float value3
     if (logs) Serial.println("AT+CIPSTART error");
     return false;
   }
-
    
   String getStr = "GET /trigger/";   // prepare GET string
   getStr += event+"/with/key/";
@@ -125,7 +124,7 @@ void Iot_device::Reset_ESP8266(int wait_time,bool logs)
 
 }
 
- void Iot_device::Baudios_ESP8266(int baudios,int wait_time,bool logs)
+ void Iot_device::Baudios_ESP8266(long int baudios,int wait_time,bool logs)
  {
   Serial1.println("AT+UART_CUR="+String(baudios)+",8,1,0,0"); 
   if (logs)
@@ -135,9 +134,9 @@ void Iot_device::Reset_ESP8266(int wait_time,bool logs)
  
   void Iot_device::Mode_ESP8266(unsigned int mode,int wait_time,bool logs)
  {
-   Serial1.println("AT+CWMODE="+mode);    // Enable this line to set esp8266 serial speed to 9600 bps
+   Serial1.println("AT+CWMODE="+String(mode));    // Enable this line to set esp8266 serial speed to 9600 bps
    if (logs)
-	Serial.println("AT+CWMODE="+mode);
+	Serial.println("AT+CWMODE="+String(mode));
    showResponse(wait_time,logs);
  }
  
