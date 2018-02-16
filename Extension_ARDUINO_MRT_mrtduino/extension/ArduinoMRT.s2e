@@ -254,8 +254,8 @@
 		{"encode":"{n0}",
 		"setup":"",
 		"inc":"",
-		"def":"double currentTime = 0;\ndouble lastTime = 0;\ndouble getLastTime(){\n\treturn currentTime = millis()/1000.0 - lastTime;\n}\n",
-		"work":"getLastTime()",
+		"def":"double lastTime = 0;\n",
+		"work":"((millis()/1000.0) - lastTime)",
 		"loop":""}],
 		
 		["w",
@@ -265,7 +265,7 @@
 		{"encode":"{n0}",
 		"setup":"",
 		"inc":"",
-		"def":"double currentTime = 0;\ndouble lastTime = 0;\n",
+		"def":"double lastTime = 0;\n",
 		"work":"lastTime = millis()/1000.0;\n",
 		"loop":""}],
 		
