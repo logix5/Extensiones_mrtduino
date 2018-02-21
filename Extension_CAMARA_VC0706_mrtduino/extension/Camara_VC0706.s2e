@@ -137,6 +137,30 @@
 			}
 		],
 		[
+			"w",
+			"Activar salida TV",
+			"ActivateTV",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.TVon();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Desactivar la salida TV",
+			"DeactivateTV",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"cam.TVoff();\n",
+				"loop":""
+			}
+		],
+		[
 			"B",
 			"Movimiento detectado con la cámara",
 			"getLenght",
