@@ -17,10 +17,10 @@
 /**        
  * Connection
  * Arduino    VoiceRecognitionModule
- * 2   ------->     TX
- * 3   ------->     RX
+ * 9   ------->     TX
+ * 11   ------->     RX
  */
-VR myVR(2,3);    // 2:RX 3:TX, you can choose your favourite pins.
+VR myVR(9,11);    // 9:RX 11:TX, you can choose your favourite pins.
 
 int br[]={
   2400, 4800, 9600, 19200, 38400

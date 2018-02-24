@@ -38,7 +38,7 @@
 			}
 		],
 		[
-			"B",
+			"R",
 			"Cargar comando de voz %d",
 			"VRLoad",
 			"0",
@@ -46,12 +46,12 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"myVR.load((uint8_t){0})",
+				"work":"myVR.load((uint8_t)({0}))",
 				"loop":""
 			}
 		],
 		[
-			"B",
+			"R",
 			"Comando de voz reconocido",
 			"VRrecognize",
 			{

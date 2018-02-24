@@ -18,12 +18,12 @@
 #include "VoiceRecognitionV3.h"
 
 /**        
-  Connection
-  Arduino    VoiceRecognitionModule
-   2   ------->     TX
-   3   ------->     RX
-*/
-VR myVR(2,3);    // 2:RX 3:TX, you can choose your favourite pins.
+ * Connection
+ * Arduino    VoiceRecognitionModule
+ * 9   ------->     TX
+ * 11   ------->     RX
+ */
+VR myVR(9,11);    // 9:RX 11:TX, you can choose your favourite pins.
 
 uint8_t record[7]; // save record
 uint8_t buf[64];
