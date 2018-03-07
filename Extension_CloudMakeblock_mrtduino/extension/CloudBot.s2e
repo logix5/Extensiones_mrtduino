@@ -1,0 +1,336 @@
+{	"extensionName": "Cloud of Bots",
+	"description": "A Big Cloud of mBots and Arduino boards (IoT)",
+	"version": "1.5",
+	"author": "Jose Carlos. Updated Oscar Ferruz para MRTduino ",
+	"homepage": "http://cloud.makeblock.es",
+	"sort":18,
+	"javascriptURL":"js/cloudbot.js",
+  "firmware":"1.0",
+  "extensionPort":0,
+	"blockSpecs": [
+
+	 [
+		"w",
+		"Begin wifi using SoftwareSerial RX port: %n.portbt, TX port: %n.portbt",
+		"runBeginWifiPin",
+		"Port10",
+		"Port11",
+		{
+			"setup":"cloud::begin({0},{1});\n",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"",
+			"loop":""
+		}
+	 ],
+	 [
+		"w",
+		"Login with : %s",
+		"runLogin",
+		"Your cloud.makeblock.es KEY",
+		{
+			"setup":"cloud::login({0});\n",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"",
+			"loop":""
+		}
+	 ]
+,
+
+	 [
+		"b",
+		"Connected to Cloud",
+		"runConnected",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::wifiConnected()",
+			"loop":""
+		}
+	 ]
+	 ,
+	 [
+		"w",
+		"Set Data %s to %s from me",
+		"runSetDataMe",
+		"name",
+		"value",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::setData( {0}, {1});\n",
+			"loop":""
+		}
+	 ]
+,
+	  [
+		"w",
+		"Set Data %s to %s from %s",
+		"runSetDataRobot",
+		"name",
+		"value",
+		"Robot ID",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::setData({2}, {0}, {1} );\n",
+			"loop":""
+		}
+	 ]
+	 ,
+	  [
+		"R",
+		"%s to Number",
+		"runConvertToNum",
+		"Convert this",
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"(String({0}).toFloat())",
+			"loop":""
+		}
+	 ]
+	 ,
+
+	  [
+		"w",
+		"Text: new variable %d.string",
+		"runNewText",
+		"variable1",
+		{
+			"setup":"",
+			"inc":"",
+			"def":"String text_{0} = \"\";\n",
+			"work":"",
+			"loop":""
+		}
+	 ]
+	 ,
+
+	  [
+		"w",
+		"Text: Set %d.string to %s",
+		"runSetText",
+		"variable1",
+		"value",
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"text_{0} = (String({1}));\n",
+			"loop":""
+		}
+	 ]
+	  ,
+
+	  [
+		"r",
+		"%d.string",
+		"runGetText",
+		"variable1",
+		
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"text_{0}",
+			"loop":""
+		}
+	 ]
+	  ,
+
+	  [
+		"b",
+		"%d.string starts with %s",
+		"runStartText",
+		"variable1",
+		"text",
+		
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"String(text_{0}).startsWith({1}) ",
+			"loop":""
+		}
+	 ]
+
+
+	 ,
+	  [
+		"R",
+		"Get Data %s from me",
+		"runGetdata",
+		"name",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::getData( {0})",
+			"loop":""
+		}
+	 ],
+
+	[
+		"R",
+		"Get Data %s from %s",
+		"runGetDataRobot",
+		"name",
+		"Robot ID",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::getData( {1}, {0})",
+			"loop":""
+		}
+	 ],
+
+	 [
+		"R",
+		"Get Data from %s at position %n from me",
+		"runGetDataAt",
+		"list",
+		"1",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::getDataAt( {0}, {1})",
+			"loop":""
+		}
+	 ],
+	  
+
+	  [
+		"R",
+		"Get Data from %s at position %n from %s",
+		"runGetDataRobotAt",
+		"list",
+		"1",
+		"Robot ID",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::getDataAt( {2}, {0}, {1} )",
+			"loop":""
+		}
+	 ], 
+	  [
+		"R",
+		"Count values of %s from me",
+		"runCountValue",
+		"list",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::count( {0})",
+			"loop":""
+		}
+	 ],
+
+	  [
+		"R",
+		"Count values of %s from %s",
+		"runCountValueRobot",
+		"list",
+		"Robot ID",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::count({1}, {0} )",
+			"loop":""
+		}
+	 ],
+
+	  [
+		"w",
+		"Delete %s",
+		"runDelete",
+		"name",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::delData( {0});\n",
+			"loop":""
+		}
+	 ],
+
+	  [
+		"w",
+		"Delete from %s value at position %d",
+		"runDeleteAt",
+		"list",
+		"1",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"",
+			"loop":""
+		}
+	 ]
+	 ,
+
+	  [
+		"R",
+		"Get wifi firmware version",
+		"runWifiVersion",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::wifiVersion( )",
+			"loop":""
+		}
+	 ]
+	 ,
+
+	  [
+		"w",
+		"Reset wifi AP config",
+		"runResetWifi",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::wifiConnect( );\n",
+			"loop":""
+		}
+	 ]
+
+		 
+	
+ 	],
+	"menus": {
+		"portbt": ["Port2", "Port3", "Port4", "Port10","Port11"],
+		"string":["variable1","variable2","variable3", "robot1", "robot2", "robot3", "received", "send", "name", "temp", "part"]
+	},
+	"values":{
+		
+		"Port2": 15, "Port3": 16, "Port4": 14, "Port10": 9, "Port11": 11,
+		"variable1":1, 
+		"variable2":2,
+		"variable3":3,
+		"robot1":4,
+		"robot2":5,
+		"robot3":6,
+
+		"data":7,
+		"received":8,
+		"send":9,
+		"name":10,
+		"temp":11,
+		"part":12,
+		"id":13
+	}
+}
