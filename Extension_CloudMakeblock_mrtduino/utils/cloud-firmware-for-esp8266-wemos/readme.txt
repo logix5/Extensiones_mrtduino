@@ -1,6 +1,6 @@
 Firmware para conectar un robot de Makeblock al cloud (http://cloud.makeblock.es) usando un módulo wifi ESP8266 Wemos ( o similar )
 
-Version: 2
+Version: 3
 
 Por: Jose Carlos ( jose@makeblock.es)
 
