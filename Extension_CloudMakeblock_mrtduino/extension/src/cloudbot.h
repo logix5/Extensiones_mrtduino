@@ -3,13 +3,9 @@
   Library to connect with cloud of bots  from  http://cloud.makeblock.es
 
 
-  Version: 1.4
+  Version: 1.6
 
-
-
-  Disclaimer: 
-  This poject has not been developed by Makeblock Co. Ltd.  
-  Has been developed by Jose Carlos from makeblock.es ( jose@makeblock.es )
+  Developed by Jose Carlos from makeblock.es ( jose@makeblock.es )
 
 */
 #include "Arduino.h"
@@ -20,7 +16,7 @@
 #include "SoftwareSerial.h"
 #include "StreamSend.h"
 
-#define CLOUD_BOT_VERSION     12
+#define CLOUD_BOT_VERSION     16
 #define WIFI_BAUD_RATE        19200
 
 #define CLOUD_BOT_RET_STR     0
@@ -127,29 +123,24 @@ void cloud::begin(uint8_t port) {
 
 
 CLOUD_BOT_SERIAL cloud::getResponse( uint16_t act, char* datax, char* value, int32_t num  ){
-
+ 
   //-  hacer 2 envios serial
   if( *value && value!=NULL){
     //- 10 de acumulacion de datos
     SerialSendData(10, value, 0); 
-    int check= CheckResponse(10);
-    if(check!=1){
-      strcpy( cloudTX.data, "ERR_COM" );
-      return cloudRX;  
-    } 
-    
-    
   }
 
-  delay(10);
-
   SerialSendData(act, datax, num);
-
+  mySerial->listen();
+ 
   int check2= CheckResponse(act);
-  if(check2>0) return cloudRX;
-
-  
-  strcpy( cloudTX.data, "ERR_COM_DATA" );
+  if(check2==1) return cloudRX;
+  if(check2==-2){
+      strcpy( cloudRX.data, "ERR_NO_RESPONSE" );
+      return cloudRX;  
+  } 
+    
+  strcpy( cloudRX.data, "ERR_CORRUPT_DATA" );
   
   return cloudRX;
   
@@ -160,6 +151,11 @@ CLOUD_BOT_SERIAL cloud::getResponse( uint16_t act, char* datax, char* value  ){
 }
 
 void cloud::SerialSendData( uint16_t act, char* val, int32_t num ){
+  
+  while(mySerial->available() > 0) {
+    char t = mySerial->read();
+  }
+  
   cloudTX.act = act;
      
   strcpy( cloudTX.data, val );
@@ -170,15 +166,13 @@ void cloud::SerialSendData( uint16_t act, char* val, int32_t num ){
   recvTimeOut = millis();
   cloudRX.act = 0;
 
- mySerial->listen();
-
   StreamSend::sendObject(*mySerial, &cloudTX, sizeof(cloudTX));
 }
 
 
 int cloud::CheckResponse(int act){
 
-    while( millis() - recvTimeOut<2000 ){
+    while( millis() - recvTimeOut<2500 ){
       byte packetResults = StreamSend::receiveObject(*mySerial, &cloudRX, sizeof(cloudRX));
       if(StreamSend::isPacketGood(packetResults)) {
           reception = 1;
