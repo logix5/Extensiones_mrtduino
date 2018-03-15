@@ -38,7 +38,7 @@
 	 ]
 ,
 
-	 [
+ [
 		"b",
 		"Connected to Cloud",
 		"runConnected",
@@ -82,86 +82,7 @@
 		}
 	 ]
 	 ,
-	  [
-		"R",
-		"%s to Number",
-		"runConvertToNum",
-		"Convert this",
-		{
-			"setup":"",
-			"inc":"",
-			"def":"",
-			"work":"(String({0}).toFloat())",
-			"loop":""
-		}
-	 ]
-	 ,
-
-	  [
-		"w",
-		"Text: new variable %d.string",
-		"runNewText",
-		"variable1",
-		{
-			"setup":"",
-			"inc":"",
-			"def":"String text_{0} = \"\";\n",
-			"work":"",
-			"loop":""
-		}
-	 ]
-	 ,
-
-	  [
-		"w",
-		"Text: Set %d.string to %s",
-		"runSetText",
-		"variable1",
-		"value",
-		{
-			"setup":"",
-			"inc":"",
-			"def":"",
-			"work":"text_{0} = (String({1}));\n",
-			"loop":""
-		}
-	 ]
-	  ,
-
-	  [
-		"r",
-		"%d.string",
-		"runGetText",
-		"variable1",
-		
-		{
-			"setup":"",
-			"inc":"",
-			"def":"",
-			"work":"text_{0}",
-			"loop":""
-		}
-	 ]
-	  ,
-
-	  [
-		"b",
-		"%d.string starts with %s",
-		"runStartText",
-		"variable1",
-		"text",
-		
-		{
-			"setup":"",
-			"inc":"",
-			"def":"",
-			"work":"String(text_{0}).startsWith({1}) ",
-			"loop":""
-		}
-	 ]
-
-
-	 ,
+	 
 	  [
 		"R",
 		"Get Data %s from me",
@@ -281,6 +202,121 @@
 	 ]
 	 ,
 
+	 [
+		"b",
+		"Cloud Actions",
+		"runActionReceived",
+		{
+			"setup":"",
+			"inc":"#include \"cloudbot.h\"\n",
+			"def":"",
+			"work":"cloud::actionsChanged()",
+			"loop":""
+		}
+	 ]
+	 ,
+
+	
+
+	  [
+		"b",
+		"Cloud Action %s is ON",
+		"runActionIsOn",
+		"name",
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"cloud::actionValue({0})==1",
+			"loop":""
+		}
+	 ]
+	 
+	 ,
+
+	  [
+		"R",
+		"%s to Number",
+		"runConvertToNum",
+		"Convert Text",
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"(String({0}).toFloat())",
+			"loop":""
+		}
+	 ]
+	 ,
+
+	  [
+		"w",
+		"Text: new variable %d.string",
+		"runNewText",
+		"variable1",
+		{
+			"setup":"",
+			"inc":"",
+			"def":"String text_{0} = \"\";\n",
+			"work":"",
+			"loop":""
+		}
+	 ]
+	 ,
+
+	  [
+		"w",
+		"Text: Set %d.string to %s",
+		"runSetText",
+		"variable1",
+		"value",
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"text_{0} = (String({1}));\n",
+			"loop":""
+		}
+	 ]
+	  ,
+
+	  [
+		"r",
+		"%d.string",
+		"runGetText",
+		"variable1",
+		
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"text_{0}",
+			"loop":""
+		}
+	 ]
+	  ,
+
+	  [
+		"b",
+		"%d.string starts with %s",
+		"runStartText",
+		"variable1",
+		"text",
+		
+		{
+			"setup":"",
+			"inc":"",
+			"def":"",
+			"work":"String(text_{0}).startsWith({1}) ",
+			"loop":""
+		}
+	 ]
+
+
+	 ,
+
+
+
 	  [
 		"R",
 		"Get wifi firmware version",
@@ -307,9 +343,6 @@
 			"loop":""
 		}
 	 ]
-
-		 
-	
  	],
 	"menus": {
 		"portbt": ["Port2", "Port3", "Port4", "Port10","Port11"],
