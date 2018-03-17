@@ -3,7 +3,7 @@
   Library to connect with cloud of bots  from  http://cloud.makeblock.es
 
 
-  Version: 1.6
+  Version: 1.7
 
   Developed by Jose Carlos from makeblock.es ( jose@makeblock.es )
 
@@ -92,6 +92,12 @@ class cloud {
 
     static String getDataAt(String prop, uint32_t num) { return cloud::getDataAt("me", prop, num);}    
 
+    static int actionsChanged() 
+      { return String(getResponse(700, "", NULL).data).toInt(); }
+
+    static int actionValue(String action) 
+      { return String(getResponse(1705, (char*)action.c_str(), NULL).data).toInt(); }   
+
   
     static CLOUD_BOT_SERIAL cloudTX;
     static CLOUD_BOT_SERIAL cloudRX;
@@ -130,6 +136,7 @@ CLOUD_BOT_SERIAL cloud::getResponse( uint16_t act, char* datax, char* value, int
     SerialSendData(10, value, 0); 
   }
 
+  delay(20);
   SerialSendData(act, datax, num);
   mySerial->listen();
  
