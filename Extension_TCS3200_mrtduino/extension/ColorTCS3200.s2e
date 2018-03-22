@@ -11,7 +11,7 @@
         
 	[
 			"w",
-			"Ini. Sensor de color: S0 %d.puertoscolor S1 %d.puertoscolor S2 %d.puertoscolor S3 %d.puertoscolor OUT %d.puertoscolor",
+			"Ini. Sensor de color TCS3200: S0 %d.puertoscolor S1 %d.puertoscolor S2 %d.puertoscolor S3 %d.puertoscolor OUT %d.puertoscolor",
 			"TCS3200begin",
 			"Port1",
 			"Port2",
