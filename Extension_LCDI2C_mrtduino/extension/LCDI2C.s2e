@@ -12,7 +12,7 @@
 	"blockSpecs": [
 		[
 			"w",
-			"Inicialización LCD en %d.lcdaddr con %d.lines líneas y %d.cols carcateres por línea",
+			"Inicialización LCD en %d.lcdaddr con %d.lines líneas y %d.cols carcateres por línea.SDA Port13 y SCL Port14",
 			"LCDI2Cbegin",
 			"0x3F",
 			2,
