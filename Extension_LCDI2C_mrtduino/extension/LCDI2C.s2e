@@ -27,7 +27,7 @@
 		],
 		[
 			"w",
-			"Esribe en la línea %d.line y columna Col %d.col el texto %s ",
+			"Escribe en la línea %d.line y columna Col %d.col el texto %s ",
 			"LCDI2CPrint",
 			1,
 			1,
