@@ -1,7 +1,7 @@
 {
     "extensionName": "Arduino para MRT-duino",
 	"description": "Extensión para oder usar pines de Arduino directamente, así como sensores y actuadores sencillos",
-	"version": "1.0",
+	"version": "1.1",
 	"author": "Oscar Ferruz (oferruz@logix5.com)",
 	"homepage": "https://github.com/logix5",
 	"sort":1,
@@ -342,6 +342,63 @@
 		"loop":""}],
 		
 		["-"],
+		
+		[
+			"w",
+			"Ini. Sensor de color TCS3200: S0 %d.puertosall S1 %d.puertosall S2 %d.puertosall S3 %d.puertosall OUT %d.puertosall",
+			"TCS3200begin",
+			"Port1",
+			"Port2",
+			"Port3",
+			"Port4",
+			"Port9",
+			{
+				"setup":"pinMode({0}, OUTPUT);\npinMode({1}, OUTPUT);\npinMode({2}, OUTPUT);\npinMode({3},OUTPUT);\npinMode({4}, INPUT);\ndigitalWrite({0}, HIGH);\ndigitalWrite({1}, LOW);",
+				"inc":"",
+				"def":"int freqRojo;\nint freqVerde;\nint freqAzul;\nvoid readColor(){digitalWrite({2},LOW);digitalWrite({3},LOW);freqRojo=pulseIn({4},LOW);delay(100);digitalWrite({2},HIGH);digitalWrite({3},HIGH);freqVerde=pulseIn({4},LOW);delay(100);digitalWrite({2},LOW);digitalWrite({3},HIGH);freqAzul=pulseIn({4},LOW);delay(100);}\n",
+				"work":"",
+				"loop":"readColor();\n"
+			}
+		],	
+		[
+			"R",
+			"Freq Rojo",
+			"TCS3200Rojo",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"freqRojo",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Freq Verde",
+			"TCS3200Verde",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"freqVerde",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Freq Azul",
+			"TCS3200Azul",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"freqAzul",
+				"loop":""
+			}
+		],
+		
+		["-"],
+		
 		
 		["B",
 		"PIR - Presencia %d.puertosall",
