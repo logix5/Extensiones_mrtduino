@@ -33,7 +33,7 @@ void setup() {
   Serial.println("Hola Cloud");
 
 // cloud::begin(PORT_1);  //<- Si tengo la libreria de makeblock puedo acceder con el puerto
-   cloud::begin(2,3);   //<- O también con 2 pines ( útil si uso otra placa de Arduino )
+   cloud::begin(9,11);   //<- O también con 2 pines ( útil si uso otra placa de Arduino )
 
   int esp8266_version = cloud::wifiVersion();
 

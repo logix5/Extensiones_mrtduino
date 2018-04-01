@@ -14,7 +14,7 @@ call comports.bat
 echo.
 
 
-set /p comport= Indica el numero del puerto COM asignado al FTDI (ejemplo 3, 4, ..): 
+set /p comport= Indica el numero del puerto COM asignado a tu WEMOS (ejemplo 3, 4, ..): 
 echo ------------------------------------------------------------------------
 echo.
 echo Puerto COM%comport% seleccionado, grabando ...
