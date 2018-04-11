@@ -1,0 +1,105 @@
+{	"extensionName": "LCD con I2C bq",
+	"description": "Extensión para usar el LCD de bq en el software MRTduino.",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":5,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización LCD Bq con %d.lines líneas y %d.cols carcateres por línea.SDA Port13 y SCL Port14",
+			"LCDI2CbeginBq",
+			2,
+			16,
+			{
+				"setup":"lcd.begin(16, 2);\n",
+				"inc":"#include \"BitbloqLiquidCrystal.h\"\n",
+				"def":"LiquidCrystal lcd(0);\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribe en la línea %d.line y columna Col %d.col el texto %s ",
+			"LCDI2CPrintBq",
+			1,
+			1,
+			"soy un robot",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd.setCursor( ({1}) - 1, ({0}) - 1 );\nlcd.print( {2} );\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Poner el backlight del LCD %d.switch ",
+			"LCDI2CBacklightBq",
+			"ON",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd.setBacklight( {0} );\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Limpiar el LCD",
+			"LCDI2CClearBq",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd.clear();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Desplazar texto LCD hacia la derecha",
+			"LCDI2CScrollRightBq",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd.scrollDisplayRight();\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Desplazar texto LCD hacia la izquierda",
+			"LCDI2CScrollLeftBq",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"lcd.scrollDisplayLeft();\n",
+				"loop":""
+			}
+		]
+	],
+	"menus": {
+		"switch":["ON","OFF"],
+		"lines":[2,4],
+		"cols":[16,20],
+		"line":[1,2,3,4],
+		"col":[1,2,4,8,12,16,20]
+	},
+	"values":{
+		"ON":1,
+		"OFF":0
+	},
+	"translators":{
+	 		
+	}
+}
