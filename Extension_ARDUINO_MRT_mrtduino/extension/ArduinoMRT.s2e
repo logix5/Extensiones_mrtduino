@@ -357,7 +357,19 @@
 				"inc":"",
 				"def":"int freqRojo;\nint freqVerde;\nint freqAzul;\nvoid readColor(){digitalWrite({2},LOW);digitalWrite({3},LOW);freqRojo=pulseIn({4},LOW);delay(100);digitalWrite({2},HIGH);digitalWrite({3},HIGH);freqVerde=pulseIn({4},LOW);delay(100);digitalWrite({2},LOW);digitalWrite({3},HIGH);freqAzul=pulseIn({4},LOW);delay(100);}\n",
 				"work":"",
-				"loop":"readColor();\n"
+				"loop":""
+			}
+		],	
+		[
+			"w",
+			"Leer el color - sensor TCS3200",
+			"TCS3200readColor",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"readColor();\n",
+				"loop":""
 			}
 		],	
 		[
