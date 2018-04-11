@@ -353,7 +353,7 @@
 			"Port4",
 			"Port9",
 			{
-				"setup":"pinMode({0}, OUTPUT);\npinMode({1}, OUTPUT);\npinMode({2}, OUTPUT);\npinMode({3},OUTPUT);\npinMode({4}, INPUT);\ndigitalWrite({0}, HIGH);\ndigitalWrite({1}, LOW);",
+				"setup":"pinMode({0}, OUTPUT);\npinMode({1}, OUTPUT);\npinMode({2}, OUTPUT);\npinMode({3},OUTPUT);\npinMode({4}, INPUT);\ndigitalWrite({0}, HIGH);\ndigitalWrite({1}, LOW);\n",
 				"inc":"",
 				"def":"int freqRojo;\nint freqVerde;\nint freqAzul;\nvoid readColor(){digitalWrite({2},LOW);digitalWrite({3},LOW);freqRojo=pulseIn({4},LOW);delay(100);digitalWrite({2},HIGH);digitalWrite({3},HIGH);freqVerde=pulseIn({4},LOW);delay(100);digitalWrite({2},LOW);digitalWrite({3},HIGH);freqAzul=pulseIn({4},LOW);delay(100);}\n",
 				"work":"",
