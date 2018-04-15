@@ -235,11 +235,11 @@
 		"loop":""}],
 		
 		["B",
-		"Botón del Joystisck %d.puertosall",
+		"Botón del Joystisck o del Encoder %d.puertosall",
 		"getJoystickbutton",
 		"Port1",
          {"encode":"{d0}",
-		 "setup":"pinMode({0},INPUT);\n",
+		 "setup":"pinMode({0},INPUT_PULLUP);\n",
 		 "inc":"",
 		 "def":"",
 		 "work":"digitalRead({0})",
