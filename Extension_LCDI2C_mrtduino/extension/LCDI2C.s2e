@@ -12,7 +12,7 @@
 	"blockSpecs": [
 		[
 			"w",
-			"Inicialización LCD en %d.lcdaddr con %d.lines líneas y %d.cols carcateres por línea.SDA Port13 y SCL Port14",
+			"Inicialización LCD en %d.lcdaddr con %d.lines líneas y %d.cols caracteres por línea.SDA Port13 y SCL Port14",
 			"LCDI2Cbegin",
 			"0x3F",
 			2,
@@ -123,7 +123,7 @@
 	},
 	"translators":{
 	 "en":{
-	       "Inicialización LCD en %d.lcdaddr con %d.lines líneas y %d.cols carcateres por línea":"Set LCD at %d.lcdaddr has %d.lines lines and %d.cols characters per line",
+	       "Inicialización LCD en %d.lcdaddr con %d.lines líneas y %d.cols caracteres por línea.SDA Port13 y SCL Port14":"Set LCD at %d.lcdaddr has %d.lines lines and %d.cols characters per line.SDA Port13 y SCL Port14",
 	       "Esribe en la línea %d.line y columna Col %d.col el texto %s ":"LCD at Line %d.line and Col %d.col Show %s ",
 	       "Poner el backlight del LCD %d.switch ":"The backlight of LCD Turn %d.switch",
 	       "Limpiar el LCD":"Clear LCD",
