@@ -1,0 +1,412 @@
+{	"extensionName": "TFT Nextion",
+	"description": "Extensión para usar TFT de 1.8 pulgadas ST7735 y con en el software MRTduino.Usamos la librería de Adafruit tanto la GFX como la ST7735",
+	"version": "1.0",
+	"author": "Oscar Ferruz (oferruz@logix5.com)",
+	"homepage": "https://github.com/logix5",
+	"sort":9,
+	"javascriptURL":"",
+	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Inicialización TFT ST7735 1.8 pulgadas. CS %d.puertosall DC %d.puertosall y RST %d.puertosall",
+			"TFTST7735begin",
+			"Port1",
+			"Port2",
+			"Port3",
+			{
+				"setup":"tft1.initR(INITR_BLACKTAB);",
+				"inc":"#include \"Adafruit_GFX.h\"\n#include \"Adafruit_ST7735.h\"\n#include \"SPI.h\"\n",
+				"def":"Adafruit_ST7735 tft1=Adafruit_ST7735({0},{1},{2});\n",
+				"work":"",
+				"loop":""
+			}
+		],
+						
+		[
+			"w",
+			"Rellena TFT con color de fondo %d.color ",
+			"FillTFTST7735",
+			"BLACK",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.fillScreen({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Posición del display %d.position",
+			"PositionTFTST7735",
+			"HORIZONTAL",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.invertDisplay({0});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Situar el cursor en la posición x %n e y %n",
+			"CursorTFTST7735",
+			0,
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.setCursor({0},{1});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Rotar el display %d",
+			"RotationTextTFTST7735",
+			45,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.setRotation({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Poner color del texto %d.color",
+			"ColorTextTFTST7735",
+			"BLACK",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.setTextColor({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Poner tamaño del texto %d.size",
+			"SizeTextTFTST7735",
+			1,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.setTextSize({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Ajustar el texto en la pantalla %d.wrap",
+			"WrapTextTFTST7735",
+			"SI",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.setTextWrap({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir con salto de línea el texto %s",
+			"TextPrintlnTFTST7735",
+			"soy un robot",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.println({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Escribir el valor %d en el TFT",
+			"PrintValueTFTST7735",
+			0,
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.print({0});\n",
+				"loop":""
+			}
+		],
+		[
+			"W",
+			"Dibujar un pixel en pox x %n e y %n con el color %d.color",
+			"PrintPixelTFTST7735",
+			0,
+			0,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.drawPixel({0},{1},{2});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar línea desde x %n y %n hasta x2 %n e y2 %n con color %d.color ",
+			"lineTFTST7735",
+			0,
+			0,
+			100,
+			100,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.drawLine({0},{1},{2},{3},{4});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar línea horizontal en coordenada y %n con ancho %d pixels y de color %d.color ",
+			"lineFastHTFTST7735",
+			0,
+			100,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.drawFastHLine(0,{0},{1},{2});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar línea vertical en coordenada x %n con alto %d pixels y de color %d.color ",
+			"lineFastVTFTST7735",
+			0,
+			100,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.drawFastVLine({0},0,{1},{2});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar rectángulo desde x %n y %n con ancho %n y alto %n en color %d.color ",
+			"rectangleTFTST7735",
+			0,
+			0,
+			100,
+			100,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.drawRect({0},{1},{2},{3},{4});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar rectángulo redondeado desde x %n y %n con ancho %n y alto %n redondeado %d en color %d.color ",
+			"rectangleTFTST7735",
+			0,
+			0,
+			100,
+			100,
+			5,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.drawRoundrect({0},{1},{2},{3},{4},{5});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar rectángulo relleno desde x %n y %n con ancho %n y alto %n en color %d.color ",
+			"rectangleFillTFTST7735",
+			0,
+			0,
+			100,
+			100,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.fillRect({0},{1},{2},{3},{4});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar círculo desde x %n y %n con radio %n y color %d.color ",
+			"circleTFTST7735",
+			50,
+			50,
+			50,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.drawCircle({0},{1},{2},{3});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar círculo relleno desde x %n y %n con radio %n y color %d.color ",
+			"circleFillTFTST7735",
+			50,
+			50,
+			50,
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.circleFilled({0},{1},{2},{3});\n",
+				"loop":""
+			}
+		],
+		
+		[
+			"w",
+			"Dibujar triángulo. Puntos x0 %n y0 %n x1 %n y1 %n x2 %n y2 %n en color %d.color ",
+			"triangleTFTST7735",
+			100,
+			0,
+			0,
+			100,
+			150,
+			100
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.drawTriangle({0},{1},{2},{3},{4},{5},{6});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Dibujar triángulo relleno.Puntos x0 %n y0 %n x1 %n y1 %n x2 %n y2 %n en color %d.color ",
+			"triangleFillTFTST7735",
+			100,
+			0,
+			0,
+			100,
+			150,
+			100
+			"WHITE",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.fillTriangle({0},{1},{2},{3},{4},{5},{6});\n",
+				"loop":""
+			}
+		],
+			
+		[
+			"B",
+			"Ancho del display",
+			"WidthTFTST7735",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.width()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Alto del display",
+			"HeightTFTST7735",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.height()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Posición x del cursor",
+			"PosXTFTST7735",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.getCursor_X()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Posición y del cursor",
+			"PosYTFTST7735",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.getCursor_Y()",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"Rotación del display",
+			"RotationTFTST7735",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"tft1.getRotation()",
+				"loop":""
+			}
+		],
+	
+	],
+	"menus": {
+		"color":["BLACK","RED","BLUE","CYAN","WHITE","GREEN","MAGENTA","YELLOW"],
+		"size":["1","2","3","4"],
+		"wrap":["SI","NO"],
+		"position":["HORIZONTAL","VERTICAL"],
+		"puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"]
+	},
+	"values":{
+		"RED":63488,"BLUE":31,"BLACK":0,"CYAN":2047,"WHITE":65535,"GREEN":2016,"MAGENTA":63519,"YELLOW":65504,
+		"SI":1,"NO":0,
+		"HORIZONTAL":0,"VERTICAL":1,
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+	},
+	"translators":{
+		
+	}
+}
+
+
