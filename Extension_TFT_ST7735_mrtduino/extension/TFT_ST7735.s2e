@@ -1,4 +1,4 @@
-{	"extensionName": "TFT Nextion",
+{	"extensionName": "TFT ST7735",
 	"description": "Extensión para usar TFT de 1.8 pulgadas ST7735 y con en el software MRTduino.Usamos la librería de Adafruit tanto la GFX como la ST7735",
 	"version": "1.0",
 	"author": "Oscar Ferruz (oferruz@logix5.com)",
@@ -16,7 +16,7 @@
 			"Port2",
 			"Port3",
 			{
-				"setup":"tft1.initR(INITR_BLACKTAB);",
+				"setup":"tft1.initR(INITR_BLACKTAB);\n",
 				"inc":"#include \"Adafruit_GFX.h\"\n#include \"Adafruit_ST7735.h\"\n#include \"SPI.h\"\n",
 				"def":"Adafruit_ST7735 tft1=Adafruit_ST7735({0},{1},{2});\n",
 				"work":"",
@@ -50,7 +50,6 @@
 				"loop":""
 			}
 		],
-		
 		[
 			"w",
 			"Situar el cursor en la posición x %n e y %n",
@@ -205,6 +204,7 @@
 				"loop":""
 			}
 		],
+		
 		[
 			"w",
 			"Dibujar rectángulo desde x %n y %n con ancho %n y alto %n en color %d.color ",
@@ -289,17 +289,16 @@
 				"loop":""
 			}
 		],
-		
 		[
 			"w",
-			"Dibujar triángulo. Puntos x0 %n y0 %n x1 %n y1 %n x2 %n y2 %n en color %d.color ",
+			"Dibujar triángulo. Puntos x0 %n y0 %n x1 %n y1 %n x2 %n y2 %n en color %d.color",
 			"triangleTFTST7735",
 			100,
 			0,
 			0,
 			100,
 			150,
-			100
+			100,
 			"WHITE",
 			{
 				"setup":"",
@@ -318,7 +317,7 @@
 			0,
 			100,
 			150,
-			100
+			100,
 			"WHITE",
 			{
 				"setup":"",
@@ -328,9 +327,8 @@
 				"loop":""
 			}
 		],
-			
 		[
-			"B",
+			"R",
 			"Ancho del display",
 			"WidthTFTST7735",
 			{
@@ -342,7 +340,7 @@
 			}
 		],
 		[
-			"B",
+			"R",
 			"Alto del display",
 			"HeightTFTST7735",
 			{
@@ -354,7 +352,7 @@
 			}
 		],
 		[
-			"B",
+			"R",
 			"Posición x del cursor",
 			"PosXTFTST7735",
 			{
@@ -366,7 +364,7 @@
 			}
 		],
 		[
-			"B",
+			"R",
 			"Posición y del cursor",
 			"PosYTFTST7735",
 			{
@@ -378,7 +376,7 @@
 			}
 		],
 		[
-			"B",
+			"R",
 			"Rotación del display",
 			"RotationTFTST7735",
 			{
@@ -388,8 +386,7 @@
 				"work":"tft1.getRotation()",
 				"loop":""
 			}
-		],
-	
+		]
 	],
 	"menus": {
 		"color":["BLACK","RED","BLUE","CYAN","WHITE","GREEN","MAGENTA","YELLOW"],
