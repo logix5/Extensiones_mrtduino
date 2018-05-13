@@ -143,7 +143,7 @@
 			}
 		],
 		[
-			"W",
+			"w",
 			"Dibujar un pixel en pox x %n e y %n con el color %d.color",
 			"PrintPixelTFTST7735",
 			0,
@@ -285,7 +285,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"tft1.circleFilled({0},{1},{2},{3});\n",
+				"work":"tft1.fillCircle({0},{1},{2},{3});\n",
 				"loop":""
 			}
 		],
