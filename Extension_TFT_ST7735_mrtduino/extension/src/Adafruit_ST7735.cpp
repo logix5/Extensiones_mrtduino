@@ -25,7 +25,7 @@ as well as Adafruit raw 1.8" TFT display
 #include <limits.h>
 #include "pins_arduino.h"
 #include "wiring_private.h"
-#include <SPI.h>
+#include "SPI.h"
 
 inline uint16_t swapcolor(uint16_t x) { 
   return (x << 11) | (x & 0x07E0) | (x >> 11);

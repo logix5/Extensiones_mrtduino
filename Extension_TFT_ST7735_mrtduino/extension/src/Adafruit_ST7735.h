@@ -26,7 +26,7 @@ as well as Adafruit raw 1.8" TFT display
 
 #include "Arduino.h"
 #include "Print.h"
-#include <Adafruit_GFX.h>
+#include "Adafruit_GFX.h"
 
 #if defined(__AVR__) || defined(CORE_TEENSY)
   #include <avr/pgmspace.h>

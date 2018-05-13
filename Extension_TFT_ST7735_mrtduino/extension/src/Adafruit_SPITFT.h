@@ -9,7 +9,7 @@
 #else
  #include "WProgram.h"
 #endif
-#include <SPI.h>
+#include "SPI.h"
 #include "Adafruit_GFX.h"
 
 
