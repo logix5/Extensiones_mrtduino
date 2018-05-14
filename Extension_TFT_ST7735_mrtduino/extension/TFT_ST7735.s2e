@@ -225,7 +225,7 @@
 		[
 			"w",
 			"Dibujar rectángulo redondeado desde x %n y %n con ancho %n y alto %n redondeado %d en color %d.color ",
-			"rectangleTFTST7735",
+			"rectangleRoundTFTST7735",
 			0,
 			0,
 			100,
@@ -236,7 +236,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"tft1.drawRoundrect({0},{1},{2},{3},{4},{5});\n",
+				"work":"tft1.drawRoundRect({0},{1},{2},{3},{4},{5});\n",
 				"loop":""
 			}
 		],
