@@ -20,5 +20,6 @@ SCK  ---> SCK de la placa MRTDuino
 ![cran-lcd-1-8-pouce-spi-tft-lcd-module-d-affichage-universel-lcd-cran-du jpg_640x640](https://user-images.githubusercontent.com/28557392/39983173-0b3716d2-5757-11e8-897d-02def8ff6d42.jpg)
 
 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
 
 
