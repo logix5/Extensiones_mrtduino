@@ -528,7 +528,7 @@
 		"beats":["500","250","125","1000","2000","0"],
 		"puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"],
 		"puertosanalog": ["Port5", "Port6", "Port7", "Port8","Port10", "Port12"],
-		"puertospwm": ["Port1", "Port9", "Port10", "Port11","Port12"],
+		"puertospwm": ["Port1", "Port9", "Port10", "Port11","Port14"],
 		"servovalue":["0","45","90","135","180"],
 		"pwmvalue":["0","50","100","150","255"],
 		"digital":["HIGH","LOW"],
