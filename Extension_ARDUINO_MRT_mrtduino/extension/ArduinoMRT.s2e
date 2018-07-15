@@ -527,7 +527,7 @@
 	"menus": {
 		"beats":["500","250","125","1000","2000","0"],
 		"puertosall": ["Port1", "Port2", "Port3", "Port4", "Port5", "Port6", "Port7", "Port8","Port9", "Port10", "Port11", "Port12", "Port13", "Port14", "Port15", "Port16"],
-		"puertosanalog": ["Port5", "Port6", "Port7", "Port8","Port10", "Port12"],
+		"puertosanalog": ["Port5", "Port6", "Port7", "Port8","Port10A", "Port12A"],
 		"puertospwm": ["Port1", "Port9", "Port10", "Port11","Port14"],
 		"servovalue":["0","45","90","135","180"],
 		"pwmvalue":["0","50","100","150","255"],
@@ -556,7 +556,8 @@
 			"C7":2093,"D7":2349,"E7":2637,"F7":2794,"G7":3136,"A7":3520,"B7":3951,
 			"C8":4186,"D8":4699,
 		"Half":500,"Quater":250,"Eighth":125,"Whole":1000,"Double":2000,"Zero":0,
-		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1
+		"Port1": 13, "Port2": 15, "Port3": 16, "Port4": 14, "Port5": 18, "Port6": 19, "Port7": 20, "Port8": 21, "Port9": 5, "Port10": 9, "Port11": 11, "Port12": 12, "Port13": 2, "Port14": 3, "Port15": 0, "Port16": 1,
+		"Port10A": 27, "Port12A": 29,
 	},
 	"translators":{
 	}
