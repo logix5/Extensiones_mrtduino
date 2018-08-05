@@ -27,7 +27,7 @@
 		],
 		
 		["w",
-			"Inicialización dipslay de 7 segmentos(8 dígitos) DIN %d.puertosall CLK %d.puertosall CS %d.puertosall",
+			"Inicialización display de 7 segmentos(8 dígitos) DIN %d.puertosall CLK %d.puertosall CS %d.puertosall",
 			"Segmentinit",
 			"Port12",
 			"Port13",

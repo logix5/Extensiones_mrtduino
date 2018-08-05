@@ -359,7 +359,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"tft1.getCursor_X()",
+				"work":"tft1.getCursorX()",
 				"loop":""
 			}
 		],
@@ -371,7 +371,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"tft1.getCursor_Y()",
+				"work":"tft1.getCursorY()",
 				"loop":""
 			}
 		],
