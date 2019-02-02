@@ -97,7 +97,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"mfrc522.PICC_HaltA();\nmfrc522.PCD_StopCrypto1();\n",
+				"work":"mfrc522.PICC_HaltA();\n",
 				"loop":""
 			}
 		]
