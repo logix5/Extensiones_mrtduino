@@ -19,7 +19,7 @@
 				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"attachInterrupt({0}, callback_{2}, {1});\n",
+				"work":"attachInterrupt(digitalPinToInterrupt({0}), callback_{2}, {1});\n",
 				"loop":""
 			}
 		],
