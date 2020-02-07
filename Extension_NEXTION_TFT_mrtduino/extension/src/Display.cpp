@@ -108,9 +108,9 @@ void Display::fill(int x1, int y1, int x2, int y2, unsigned int color)
 void Display::EnviarComandoTexto (String Text,int valor)
 {
 	Serial1.print(Text);
-	Serial.write(0x22);
+	Serial1.write(0x22);
 	Serial1.print(valor);
-	Serial.write(0x22);
+	Serial1.write(0x22);
 	enddisplaycommand();
 }
 
